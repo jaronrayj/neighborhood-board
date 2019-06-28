@@ -20,6 +20,15 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
-  }
+    "if-env": "^1.0.4",
+    "mongoose": "^5.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaronrayj/neighborhood-board.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaronrayj/neighborhood-board/issues"
+  },
+  "homepage": "https://github.com/jaronrayj/neighborhood-board#readme"
 }
