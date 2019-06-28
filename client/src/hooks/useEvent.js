@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function useEvent() {
     const [events, setEvents] = useState({});
 
-
-    fetch("/api/events")
-        .then(function (res) {
-            return res.json();
-        })
-        .then(function (data) {
-            setEvents(data);
-        }, []);
+    useEffect(() => {
+        fetch("/api/events")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                setEvents(data)
+            });
+    }, []);
 
     return events;
 };

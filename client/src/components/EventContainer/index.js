@@ -3,7 +3,18 @@ import useEvent from '../../hooks/useEvent';
 import Event from '../Event'
 
 function EventContainer() {
-    const events = useEvent();
+    // const events = useEvent();
+
+    const events = [{
+        title: "title",
+        description: "description box",
+        date: "2/13/2019"
+    },
+    {
+        title: "title",
+        description: "description box",
+        date: "2/13/2019"
+    }]
 
     return (
         <>
