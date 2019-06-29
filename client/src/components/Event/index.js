@@ -1,17 +1,22 @@
 import './style.css';
 import React from 'react';
+import { Feed } from 'semantic-ui-react'
 
 function Event(props) {
 
 
     return (
-        <>
-            <h4>{props.title}</h4>
+        <Feed>
+            <Feed.Event>
+                <Feed.Label>{props.date}</Feed.Label>
+                <Feed.Content>
+                    <h4>{props.title}</h4>
 
-            <p>{props.description}</p>
+                    <p>{props.description}</p>
 
-            <p>{props.date}</p>
-        </>
+                </Feed.Content>
+            </Feed.Event>
+        </Feed>
     );
 }
 
