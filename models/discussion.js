@@ -5,12 +5,12 @@ const discussionSchema = mongoose.Schema({
     forum: { type: mongoose.Schema.ObjectId, ref: 'forum' },
     discussion_slug: String,
     user_id: mongoose.Schema.ObjectId, 
-    user: { type: mongoose.Schema.ObjectId, ref: 'user' },
+    username: { type: mongoose.Schema.ObjectId, ref: 'user' },
     date: Date,
     title: String,
-    content: Object,
+    body: Object,
     tags: Array,
     pinned: Boolean
 });
 
-module.exports = mongoose.model('discusion', discussionSchema);
+module.exports = mongoose.model('discussion', discussionSchema);

@@ -1,0 +1,8 @@
+
+/* this will style the body where the feed will render */
+.feed-body{
+ width: 900px;
+ background-color: lightgrey;
+ height: 100%;
+ padding: 10px;
+}
