@@ -4,12 +4,13 @@ import "./App.css";
 import Discussion from "./components/Discussion";
 
 class App extends Component {
+
+
   render() {
     return (
       <>
-
         <EventContainer />
-        <Discussion />
+        <Discussion  />
       </>
     );
   }
