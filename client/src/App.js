@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <>
 
-        <Discussion />
         <EventContainer />
+        <Discussion />
       </>
     );
   }

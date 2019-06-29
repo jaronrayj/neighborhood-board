@@ -1,6 +1,7 @@
 import React from 'react';
-import useEvent from '../../hooks/useEvent';
+// import useEvent from '../../hooks/useEvent';
 import Event from '../Event'
+import { Card } from 'semantic-ui-react'
 
 function EventContainer() {
     // const events = useEvent();
@@ -17,20 +18,29 @@ function EventContainer() {
     }]
 
     return (
-        <>
-            {
-                events.map(e =>
-                    <>
-                        <Event
-                            title={e.title}
-                            description={e.description}
-                            date={e.date}
+        <Card.Group>
+            <Card>
+                <Card.Content>
+                    <Card.Header>Upcoming Events</Card.Header>
+                </Card.Content>
+                <Card.Content>
 
-                        />
-                    </>
-                )
-            }
-        </>
+                {
+                    events.map(e =>
+                        <>
+                            <Event
+                                title={e.title}
+                                description={e.description}
+                                date={e.date}
+
+                            />
+                        </>
+                    )
+                }
+                </Card.Content>
+            </Card>
+        </Card.Group>
+
     )
 }
 
