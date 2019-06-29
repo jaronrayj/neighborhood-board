@@ -1,0 +1,38 @@
+/* link bootstrap in the index.html in the public folder*/
+/* style for post format goes here */
+
+.post{
+    background-color: rgb(233, 231, 231);
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    border: 2px;
+    padding: 10px;
+    margin: 30px;
+}
+
+.header{
+
+}
+
+.footer{
+    margin: 10px;
+}
+
+.user-name{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.date{
+    font-size: 1rem;
+    float: right;
+}
+
+.post-body{
+    font-size: 2rem;
+    background-color: white;
+    padding: 30px;
+}
+
+button{
+    margin: 10px;
+}
