@@ -31,7 +31,7 @@ function Feed(dataFromDataBase) {
 
     return(
         <div className="feed-body">
-        <button type="button" class="btn btn-success">Write Post</button>
+        <button type="button" class="write-post-button btn btn-success">Write Post</button>
             {posts.map(post => Post(post) )}
         </div>
     );

@@ -8,3 +8,11 @@
 button{
     margin: 10px;
 }
+
+.time-span{
+    float: right;
+}
+
+.delete-button{
+    float: right;
+}
