@@ -7,7 +7,6 @@ class App extends Component {
     return (
       <>
         <EventContainer />
-        <Post />
       </>
     );
   }
