@@ -1,31 +1,35 @@
 import React from "react";
 import "./Post.css";
 
-
 //render cards for the feed 
     //use loop to go through the array of feed data
 
 function Post(props) {
     return (
-      <div className="post">
 
-        <div className="header">
-          <h1 className="user-name">{props.username}<span className="date">{props.date}</span></h1>
+      <div class="card text-center">
+
+        <div class="card-header">
+          {props.username}
         </div>
 
-        <div>{props.title}</div>
+        <div class="card-body">
 
-        <hr />
+          <h5 class="card-title">{props.title}</h5>
+          <p class="card-text">{props.body}</p>
 
-          <div className="post-body">{props.body}</div>
+          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm">Edit</button>
+          <button type="button" class="btn btn-outline-info btn-sm">Comment</button>
 
-        <div className="footer">
-          <button className="delete-button">Delete</button>
-          <button className="edit-button">Edit</button>
-          <button className="comments">Comment</button>
+        </div>
+
+        <div class="card-footer text-muted">
+          {props.date}
         </div>
 
       </div>
+
     )
   }
 
