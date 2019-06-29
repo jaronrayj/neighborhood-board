@@ -12,3 +12,4 @@ var Market = require("../models/marketplace.js");
 router.get("/", function(req, res) {
     res.redirect("/  ?  ")
 })
+
