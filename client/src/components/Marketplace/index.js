@@ -2,6 +2,7 @@ import React from 'react';
 // import useEvent from '../../hooks/useEvent';
 import MarketItem from '../MarketItem'
 import { Card } from 'semantic-ui-react'
+import MarketplaceModal from '../MarketplaceModal'
 
 function Marketplace() {
     // const events = useEvent();
@@ -37,7 +38,9 @@ function Marketplace() {
         <Card.Group>
             <Card>
                 <Card.Content>
-                    <Card.Header>Marketplace</Card.Header>
+                    <Card.Header>Marketplace
+                    <MarketplaceModal />
+                    </Card.Header>
                 </Card.Content>
                 <Card.Content>
 
