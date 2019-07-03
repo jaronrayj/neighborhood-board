@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import EventContainer from './components/EventContainer'
 import "./App.css";
 import Discussion from "./components/Discussion";
+import Marketplace from "./components/Marketplace";
 
 class App extends Component {
 
@@ -11,6 +12,7 @@ class App extends Component {
       <>
         <EventContainer />
         <Discussion  />
+        <Marketplace />
       </>
     );
   }

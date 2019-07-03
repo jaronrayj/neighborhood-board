@@ -15,7 +15,7 @@ function EventContainer() {
         title: "title",
         description: "description box",
         date: "2/13/2019"
-    }]
+    }];
 
     return (
         <Card.Group>
