@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "../Post";
 import "./Discussion.css";
+import ModalDiscussion from "../Modal";
 
 function Feed(dataFromDataBase) {
     //I will need to figure out how to connect to the db when we have it created
@@ -31,7 +32,8 @@ function Feed(dataFromDataBase) {
 
     return(
         <div className="feed-body">
-        <button type="button" class="btn btn-success">Write Post</button>
+
+        <ModalDiscussion />
             {posts.map(post => Post(post) )}
         </div>
     );
