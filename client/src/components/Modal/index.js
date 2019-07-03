@@ -30,18 +30,18 @@ class ModalDiscussion extends Component {
             </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Modal Title</Modal.Title>
-                        </Modal.Header>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal Title</Modal.Title>
+                    </Modal.Header>
 
-                        <Modal.Body>
-                            <p>Modal body text goes here.</p>
-                        </Modal.Body>
+                    <Modal.Body>
+                        <p>Modal body text goes here.</p>
+                    </Modal.Body>
 
-                        <Modal.Footer>
-                            <Button onClick={this.handleClose} variant="secondary">Close</Button>
-                            <Button variant="primary">Save changes</Button>
-                        </Modal.Footer>
+                    <Modal.Footer>
+                        <Button onClick={this.handleClose} variant="secondary">Close</Button>
+                        <Button variant="primary">Save changes</Button>
+                    </Modal.Footer>
                 </Modal>
             </>
         );

@@ -37,7 +37,9 @@ function Marketplace() {
         <Card.Group>
             <Card>
                 <Card.Content>
-                    <Card.Header>Marketplace</Card.Header>
+                    <Card.Header>Marketplace
+                        
+                    </Card.Header>
                 </Card.Content>
                 <Card.Content>
 
