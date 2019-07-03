@@ -32,6 +32,7 @@ function Feed(dataFromDataBase) {
 
     return(
         <div className="feed-body">
+
         <ModalDiscussion />
             {posts.map(post => Post(post) )}
         </div>
