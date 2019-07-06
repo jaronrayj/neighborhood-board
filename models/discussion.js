@@ -23,10 +23,11 @@ const Schema = mongoose.Schema;
 
 const discussionSchema = new Schema({
     forum_id: mongoose.Schema.ObjectId,
-    forum: { type: mongoose.Schema.ObjectId, ref: 'forum' },
+    forum: { type: mongoose.Schema.ObjectId, ref: 'Forum' },
     discussion_slug: String,
     user_id: mongoose.Schema.ObjectId,
-    username: { type: mongoose.Schema.ObjectId, ref: 'user' },
+    username: String,
+    // { type: mongoose.Schema.ObjectId, ref: 'User' },
     date: Date,
     title: String,
     body: String,
