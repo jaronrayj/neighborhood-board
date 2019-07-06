@@ -22,13 +22,6 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/neighborhood-board", { useNewUrlParser: true });
 
-const apiRoutesUsers = require('./server/routes/api-users');
-const apiRoutesAuth = require('./server/routes/api-auth');
-
-app.use('/api/users', apiRoutesUsers);
-app.use('/api/auth', apiRoutesAuth);
-
-
 // Define API routes here
 
 // Send every other request to the React app

@@ -23,9 +23,6 @@ class MarketplaceModal extends Component {
         this.setState({ show: true });
     }
 
-    handleSubmit(){
-        $.post()
-    }
 
     render() {
         return (
@@ -74,7 +71,7 @@ class MarketplaceModal extends Component {
 
                     <Modal.Footer>
                         <Button onClick={this.handleClose} variant="secondary">Close</Button>
-                        <Button onbClick={this.handleSubmit} variant="primary">Save changes</Button>
+                        <Button variant="primary">Save changes</Button>
                     </Modal.Footer>
                     {/* </Modal.Dialog> */}
                 </Modal>

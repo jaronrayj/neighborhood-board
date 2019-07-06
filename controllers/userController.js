@@ -1,4 +1,4 @@
-const db = require('../models/users')
+const db = require('../models/user')
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
