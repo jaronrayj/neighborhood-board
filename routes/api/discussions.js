@@ -3,8 +3,8 @@ const discussionsController = require("../../controllers/discussionController");
 
 //Match with "/api/discussions"
 router.route("/")
-    .get(discussionController.findAll)
-    .post(discussionController.create);
+    .get(discussionsController.findAll)
+    .post(discussionsController.create);
 
 //Match with "/api/discussions/:id"
 router
