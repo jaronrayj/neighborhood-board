@@ -55,7 +55,7 @@ class MarketplaceModal extends Component {
                             <Form.Group id="marketItemImg">
                                 <Form.Label>Insert image of product</Form.Label>
                                 {/* this might not work as well "file" */}
-                                <Form.Control as="file" />
+                                <Form.Control as="img" />
                             </Form.Group>
                             <Form.Group id="marketItemEmail">
                                 <Form.Label>Contact Email</Form.Label>
