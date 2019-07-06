@@ -8,9 +8,8 @@ const eventSchema = new Schema({
   date: { type: Date, default: Date.now },
   startTime: { type: Date },
   endTime: { type: Date },
-  timestamps: true
 });
 
-const Event = mongoose.model("Event", bookSchema);
+const Event = mongoose.model("Event", eventSchema);
 
 module.exports = Event;
