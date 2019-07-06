@@ -30,8 +30,6 @@ class ModalDiscussion extends Component {
             </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
-
-                    <Modal.Dialog>
                         <Modal.Header closeButton>
                             <Modal.Title>Modal Title</Modal.Title>
                         </Modal.Header>
@@ -44,7 +42,6 @@ class ModalDiscussion extends Component {
                             <Button onClick={this.handleClose} variant="secondary">Close</Button>
                             <Button variant="primary">Save changes</Button>
                         </Modal.Footer>
-                    </Modal.Dialog>
                 </Modal>
             </>
         );
