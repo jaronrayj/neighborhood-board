@@ -22,15 +22,11 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/neighborhood-board", { useNewUrlParser: true });
 
-// mongoose.connect(MONGODB_URI);
-// mongoose.connect(MONGODB_URI,{ useNewUrlParser: true });
+const apiRoutesUsers = require('./server/routes/api-users');
+const apiRoutesAuth = require('./server/routes/api-auth');
 
-// //test mongoose connection
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error: '));
-// db.once('open', function() {
-// //   //we're connected!
-// });
+app.use('/api/users', apiRoutesUsers);
+app.use('/api/auth', apiRoutesAuth);
 
 
 // Define API routes here
