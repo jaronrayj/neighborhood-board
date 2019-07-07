@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
-var settings = require('../../config/settings');
+var settings = require('../../config');
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
-var User = require("../models/Users");
+var User = require("../../models/user.js");
 
 require('../../config/passport')(passport);
 
@@ -23,10 +23,8 @@ router.post('/signup', function (req, res) {
             lastName: req.body.lastName,
             displayName: req.body.firstName + " " + req.body.lastName[0],
             email: req.body.email,
-            role: "employee",
             username: req.body.username,
             password: req.body.password,
-            slackHandle: req.body.slackHandle,
             startDate: req.body.startDate,
             active: false,
             activeHash: activeHash

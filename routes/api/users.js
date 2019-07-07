@@ -2,14 +2,13 @@ const express = require('express');
 const router = new express.Router();
 const mongoose = require('mongoose');
 const config = require('../../config');
-const db_url = process.env.MONGODB_URI || config.dbUri
-const usersController = require("../controllers/usersController")
-const coursesController = require("../controllers/coursesController")
+// const db_url = process.env.MONGODB_URI || config.dbUri
+const usersController = require("../../controllers/userController")
 var passport = require('passport');
 
 require('../../config/passport')(passport);
 
-mongoose.connect(db_url);
+// mongoose.connect(db_url);
 
 
 getToken = function (headers) {
