@@ -10,6 +10,7 @@ require('../../config/passport')(passport);
 
 
 ////// *ROUTE FOR CREATING A NEW ACCOUNT //////
+// Route "/api/auth/signup"
 router.post('/signup', function (req, res) {
 
     let activeHash = Math.random().toString(36).slice(2)
@@ -47,6 +48,7 @@ router.post('/signup', function (req, res) {
 
 });
 
+// Route "/api/auth/login"
 ///// * ROUTE FOR LOGGING IN A NEW USER ///////
 router.post('/login', function (req, res) {
     User.findOne({

@@ -34,7 +34,6 @@ var UserSchema = new Schema({
     //     default: 'customer',
     //     enum:["admin", "customer"]
     //   },
-    projects: Array,
     dateCreated: {
         type: Date,
         default: Date.now
