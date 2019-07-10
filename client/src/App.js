@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import EventContainer from './components/EventContainer'
 import "./App.css";
 import Discussion from "./components/Discussion";
@@ -10,9 +12,17 @@ class App extends Component {
   render() {
     return (
       <>
-        <EventContainer />
-        <Discussion  />
-        <Marketplace />
+        <Row>
+          <Col sm={3}>
+            <EventContainer />
+          </Col>
+          <Col sm={6}>
+            <Discussion  />
+          </Col>
+          <Col sm={3}>
+            <Marketplace />
+          </Col>
+        </Row>
       </>
     );
   }
