@@ -2,6 +2,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class ModalDiscussion extends Component {
     constructor(props, context) {
@@ -12,8 +13,19 @@ class ModalDiscussion extends Component {
 
         this.state = {
             show: false,
+            title: "",
+            body: ""
         };
     }
+
+    handleInputChange = event => {
+        let value = event.target.value;
+        const name = event.target.name;
+
+        this.setState({
+            [name]: value
+        });
+    };
 
     handleClose() {
         this.setState({ show: false });
@@ -22,6 +34,21 @@ class ModalDiscussion extends Component {
     handleShow() {
         this.setState({ show: true });
     }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const { title, body } = this.state;
+
+        Axios.post('/api/discussions', { title, body })
+            .then((result) => {
+                console.log(result);
+            })
+
+        this.setState({
+            title: "",
+            body: ""
+        });
+    };
 
     render() {
         return (
@@ -41,18 +68,18 @@ class ModalDiscussion extends Component {
                         <Form>
                             <Form.Group id="discussionTitle">
                                 <Form.Label>Post Title</Form.Label>
-                                <Form.Control as="textarea" />
+                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="discussionBody">
                                 <Form.Label>Posts</Form.Label>
-                                <Form.Control as="textarea" rows="10" />
+                                <Form.Control as="textarea" rows="10" value={this.state.body} onChange={this.handleInputChange} name="body" />
                             </Form.Group>
                         </Form>
                     </Modal.Body>
 
                     <Modal.Footer>
                         <Button onClick={this.handleClose} variant="secondary">Close</Button>
-                        <Button variant="primary">Save changes</Button>
+                        <Button variant="primary" onClick={this.handleSubmit}>Save changes</Button>
                     </Modal.Footer>
                     {/* </Modal.Dialog> */}
                 </Modal>
