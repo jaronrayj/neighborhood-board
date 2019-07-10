@@ -1,9 +1,27 @@
 [
-    { 
-        "username": "bob2397",
-        "title": "What's Up Dog",
-        "body": "THis is the body of the post."
-        
-
+    {
+        "username": "Albert Einstein",
+        "title": "Quote",
+        "body": "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle."
+    },
+    {
+        "username": "Marilyn Monroe",
+        "title": "Quote",
+        "body": "Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring."
+    },
+    {
+        "username": "C.S. Lewis",
+        "title": "Quote",
+        "body": "You can never get a cup of tea large enough or a book long enough to suit me."
+    },
+    {
+        "username": "Maya Angelou",
+        "title": "Quote",
+        "body": "What you're supposed to do when you don't like a thing is change it. If you can't change it, change the way you think about it. Don't complain."
+    },
+    {
+        "username": "Laurel Thatcher Ulrich",
+        "title": "Quote",
+        "body": "Well-behaved women seldom make history."
     }
 ]
