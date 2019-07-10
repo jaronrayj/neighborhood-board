@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from "react";
+import API from "../../utils/Api";
 // import useEvent from '../../hooks/useEvent';
-import MarketItem from '../MarketItem'
-import { Card } from 'semantic-ui-react'
-import MarketplaceModal from '../MarketplaceModal'
+import MarketItem from '../MarketItem';
+import { Card } from 'semantic-ui-react';
+import MarketplaceModal from '../MarketplaceModal';
+ 
 
-function Marketplace() {
+// function Marketplace() {
     // const events = useEvent();
 
     const items = [{
@@ -34,37 +36,52 @@ function Marketplace() {
         img: "https://via.placeholder.com/50x50"
     }];
 
-    return (
-        <Card.Group>
-            <Card>
-                <Card.Content>
-                    <Card.Header>Marketplace
-                    <MarketplaceModal />
-                    </Card.Header>
-                </Card.Content>
-                <Card.Content>
+    class Marketplace extends Component {
+        state = {
+            savedMarketItems: []
+        };
+        
+    
+        //when this component mounts, grab all market items that were saved to the database 
+        componentDidMount() {
+            API.getMarketItems()
+                .then(res => this.setState({ savedMarketItems: res.data }))
+                .catch(err => console.log(err))
+        }
+    
+    render() {
+        return (
+            <Card.Group>
+                <Card>
+                    <Card.Content>
+                        <Card.Header>Marketplace
+                        <MarketplaceModal />
+                        </Card.Header>
+                    </Card.Content>
+                    <Card.Content>
+                        {
+                            // this.state.savedMarketItems
+                            items.map(e =>
+                                <>
+                                    <MarketItem
+                                        userId={e.userId}
+                                        title={e.title}
+                                        description={e.description}
+                                        price={e.price}
+                                        contactPhone={e.contactPhone}
+                                        contactEmail={e.contactEmail}
 
-                    {
-                        items.map(e =>
-                            <>
-                                <MarketItem
-                                    userId={e.userId}
-                                    title={e.title}
-                                    description={e.description}
-                                    price={e.price}
-                                    contactPhone={e.contactPhone}
-                                    contactEmail={e.contactEmail}
+                                    />
+                                </>
+                            )
+                        }
+                    </Card.Content>
+                </Card>
+            </Card.Group>
 
-                                />
-                            </>
-                        )
-                    }
-                </Card.Content>
-            </Card>
-        </Card.Group>
-
-    )
+    )}
 }
+// }
 
 export default Marketplace;
 
