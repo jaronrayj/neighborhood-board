@@ -7,29 +7,65 @@ import Discussion from "./components/Discussion";
 import Marketplace from "./components/Marketplace";
 import LoginForm from "./components/Login";
 import Signup from './components/Signup'
-import { Route, withRouter, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class App extends Component {
 
+  state = {
+    isAuthenticated: false,
+    userInfo: ""
+  }
+
+  handleAuth = (bool, emailUser) => {
+    this.setState({
+      isAuthenticated: bool,
+      userInfo: emailUser
+    })
+  }
+
+  handleLogout = (event) => {
+    event.preventDefault();
+    this.setState({
+      isAuthenticated: false,
+      userInfo: ""
+    })
+  }
 
   render() {
     return (
       <>
-        <Route render={({ location }) => (
+        <Router>
+
           <Switch location={this.props.location}>
-            <Route path="/login" exact component={LoginForm} />
-            <Route path="/signup" exact component={Signup} />
+            <Route exact path="/login" exact component={LoginForm} />
+            <Route exact path="/signup" exact component={Signup} />
           </Switch>
-        )} />
+        </Router>
+
+
         <Row>
           <Col sm={3}>
-            <EventContainer />
+            <EventContainer
+              isAuthed={this.state.isAuthenticated}
+              handleAuth={this.handleAuth}
+            />
           </Col>
           <Col sm={6}>
-            <Discussion />
+            <Discussion
+              isAuthed={this.state.isAuthenticated}
+              handleAuth={this.handleAuth}
+            />
           </Col>
           <Col sm={3}>
-            <Marketplace />
+            <Marketplace
+              isAuthed={this.state.isAuthenticated}
+              handleAuth={this.handleAuth}
+            />
           </Col>
         </Row>
       </>
@@ -37,4 +73,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;
