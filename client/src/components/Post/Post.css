@@ -5,7 +5,7 @@
     margin: 30px;
 }
 
-button{
+.btn-sm{
     margin: 10px;
 }
 
@@ -13,6 +13,6 @@ button{
     float: right;
 }
 
-.delete-button{
+.post-delete-button{
     float: right;
 }
