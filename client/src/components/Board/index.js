@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import EventContainer from '../EventContainer';
 import Discussion from "../Discussion";
 import Marketplace from "../Marketplace";
+import axios from 'axios';
 
 export default class Board extends Component {
 
@@ -20,7 +21,7 @@ export default class Board extends Component {
 
             currentComponent.setState({authenticatedUser: response.data.authenticatedUser})
 
-            axios.get(`/api/projects/${_id}`).then(function(response){
+            axios.get(`/api/projects`).then(function(response){
                 currentComponent.setState({project: response.data})
             }).catch(function(error){console.log(error)})
 
@@ -29,7 +30,7 @@ export default class Board extends Component {
             window.location='/login'
         })
     }
-    
+
     render() {
         return (
             <Row>
