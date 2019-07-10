@@ -38,13 +38,7 @@ var UserSchema = new Schema({
         type: Date,
         default: Date.now
       },
-    lastLogin: Date,
-    active: {
-    type: Boolean,
-    default: false
-    },
-    activeHash: String,
-    startDate: Date
+    lastLogin: Date
 });
 
 UserSchema.pre('save', function (next) {

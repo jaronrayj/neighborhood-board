@@ -1,22 +1,22 @@
-import React from 'react';
-// import useEvent from '../../hooks/useEvent';
+import React, {useEffect} from 'react';
+import useEvent from '../../hooks/useEvent';
 import Event from '../Event'
 import { Card } from 'semantic-ui-react'
 import EventModal from '../EventModal'
+// import ajax from "ajax";
 
 function EventContainer() {
-    // const events = useEvent();
 
-    const events = [{
-        title: "title",
-        description: "description box",
-        date: "2/13/2019"
-    },
-    {
-        title: "title",
-        description: "description box",
-        date: "2/13/2019"
-    }];
+    let events;
+    
+    useEffect(() => {
+        return () => {
+            events = useEvent();
+        };
+    }, [events])
+
+
+
 
     return (
         <Card.Group>

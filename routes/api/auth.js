@@ -25,10 +25,7 @@ router.post('/signup', function (req, res) {
             displayName: req.body.firstName + " " + req.body.lastName[0],
             email: req.body.email,
             username: req.body.username,
-            password: req.body.password,
-            startDate: req.body.startDate,
-            active: false,
-            activeHash: activeHash
+            password: req.body.password
         });
         // save the user
         newUser.save(function (err) {

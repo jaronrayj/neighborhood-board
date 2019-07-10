@@ -41,9 +41,7 @@ router.get('/authenticate', passport.authenticate('jwt', { session: false }), fu
             firstName: req.user.firstName,
             lastName: req.user.lastName,
             displayName: req.user.firstName + " " + req.user.lastName[0],
-            email: req.user.email,
-            role: req.user.role,
-            active: req.user.active
+            email: req.user.email
         }
         res.send({ authenticatedUser: authenticatedUser })
     } else {
