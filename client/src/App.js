@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import EventContainer from './components/EventContainer'
 import "./App.css";
-import Discussion from "./components/Discussion";
-import Marketplace from "./components/Marketplace";
 import LoginForm from "./components/Login";
 import Signup from './components/Signup'
+import Board from './components/Board'
 import {
   BrowserRouter as Router,
   Route,
@@ -28,6 +24,8 @@ class App extends Component {
     })
   }
 
+
+
   handleLogout = (event) => {
     event.preventDefault();
     this.setState({
@@ -40,34 +38,12 @@ class App extends Component {
     return (
       <>
         <Router>
-
           <Switch location={this.props.location}>
             <Route exact path="/login" exact component={LoginForm} />
             <Route exact path="/signup" exact component={Signup} />
+            <Route exact path="/board" exact component={Board} />
           </Switch>
         </Router>
-
-
-        <Row>
-          <Col sm={3}>
-            <EventContainer
-              isAuthed={this.state.isAuthenticated}
-              handleAuth={this.handleAuth}
-            />
-          </Col>
-          <Col sm={6}>
-            <Discussion
-              isAuthed={this.state.isAuthenticated}
-              handleAuth={this.handleAuth}
-            />
-          </Col>
-          <Col sm={3}>
-            <Marketplace
-              isAuthed={this.state.isAuthenticated}
-              handleAuth={this.handleAuth}
-            />
-          </Col>
-        </Row>
       </>
     );
   }
