@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Button, Form, Icon, Message, Loader } from 'semantic-ui-react'
+import { Button, Form, Message, Loader } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 // import './style.css'
