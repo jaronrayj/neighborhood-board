@@ -23,7 +23,7 @@ class LoginForm extends Component {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
 
         axios.get('/api/users/authenticate').then(function (response) {
-            window.location = '/profile'
+            window.location = '/board'
         }).catch(function (err) {
             console.log(err)
         })
@@ -59,7 +59,7 @@ class LoginForm extends Component {
             .then((result) => {
 
                 localStorage.setItem('jwtToken', result.data.token);
-                window.location = '/profile'
+                window.location = '/board'
 
             })
 

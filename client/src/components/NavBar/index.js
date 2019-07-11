@@ -11,10 +11,6 @@ class NavBar extends Component {
         }
     }
 
-    handleClick = (route) => {
-        // window.location.assign(route);
-    }
-
     render() {
         return (
             <>

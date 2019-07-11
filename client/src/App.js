@@ -10,53 +10,30 @@ import {
   Switch
 } from "react-router-dom";
 
-const routes = [
-  {
-    path: '/',
-    key: 'home',
-    component: 'NavBar'
-  },
-  {
-    path: '/login',
-    key: 'login',
-    component: 'LoginForm'
-  },
-  {
-    path: '/signup',
-    key: 'signup',
-    component: 'Signup'
-  },
-  {
-    path: '/board',
-    key: 'board',
-    component: 'Board'
-  }
-]
+// const routes = [
+//   {
+//     path: '/',
+//     key: 'home',
+//     component: 'NavBar'
+//   },
+//   {
+//     path: '/login',
+//     key: 'login',
+//     component: 'LoginForm'
+//   },
+//   {
+//     path: '/signup',
+//     key: 'signup',
+//     component: 'Signup'
+//   },
+//   {
+//     path: '/board',
+//     key: 'board',
+//     component: 'Board'
+//   }
+// ]
 
 class App extends Component {
-
-
-  state = {
-    isAuthenticated: false,
-    userInfo: ""
-  }
-
-  handleAuth = (bool, emailUser) => {
-    this.setState({
-      isAuthenticated: bool,
-      userInfo: emailUser
-    })
-  }
-
-
-
-  handleLogout = (event) => {
-    event.preventDefault();
-    this.setState({
-      isAuthenticated: false,
-      userInfo: ""
-    })
-  }
 
   render() {
     return (

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
-var settings = require('../../config');
+var settings = require('../../config/settings');
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();

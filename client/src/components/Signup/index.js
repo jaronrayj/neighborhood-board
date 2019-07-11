@@ -13,12 +13,9 @@ class LoginForm extends Component {
             firstName: "",
             lastName: "",
             email: "",
-            // role: "employee",
             username: "",
             password: "",
             confirmPassword: "",
-            // slackHandle: "",
-            // startDate: "",
             error: false,
             errorMessage: "",
             submitting: false,
@@ -31,7 +28,7 @@ class LoginForm extends Component {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
 
         axios.get('/api/users/authenticate').then(function (response) {
-            window.location = '/'
+            window.location = '/board'
         }).catch(function (err) {
             console.log(err)
         })

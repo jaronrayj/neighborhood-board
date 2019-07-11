@@ -10,7 +10,6 @@ require('../../config/passport')(passport);
 
 // mongoose.connect(db_url);
 
-
 getToken = function (headers) {
     if (headers && headers.authorization) {
         var parted = headers.authorization.split(' ');
@@ -24,6 +23,7 @@ getToken = function (headers) {
     }
 };
 
+// api call get /api/users/confirm/:id
 ///////////////////  CONFIRM REGISTRATION  ////////////////
 router.get('/confirm/:id', function (req, res) {
     usersController.confirm(req, res)
@@ -32,6 +32,7 @@ router.get('/confirm/:id', function (req, res) {
 
 
 
+// api call get /api/users/authenticate
 ///////////////////  RETURN AUTHENTICATED USER //////////////
 router.get('/authenticate', passport.authenticate('jwt', { session: false }), function (req, res) {
     var token = getToken(req.headers);
@@ -52,6 +53,7 @@ router.get('/authenticate', passport.authenticate('jwt', { session: false }), fu
 
 
 
+// api call get /api/users/
 /////////////////////  GET ALL USERS /////////////////////////
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
     var token = getToken(req.headers);
@@ -69,6 +71,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), function (req,
 
 
 
+// api call delete /api/users/:id
 //////////////////    DELETE A USER   /////////////////////////
 router.delete('/:id', passport.authenticate('jwt', { session: false }), function (req, res) {
     var token = getToken(req.headers);
@@ -85,6 +88,7 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), function
 /////////////////////////////////////////////////////////////////
 
 
+// api call put /api/users/:id
 //////////////////  UPDATE A USER   /////////////////////////
 router.put('/:id', passport.authenticate('jwt', { session: false }), function (req, res) {
     var token = getToken(req.headers);
@@ -100,6 +104,7 @@ router.put('/:id', passport.authenticate('jwt', { session: false }), function (r
 })
 //////////////////////////////////////////////////////////////
 
+// api call put /api/users/password/:id
 //////////////////  UPDATE A USERS PASSWORD  //////////////////
 router.put('/password/:id', passport.authenticate('jwt', { session: false }), function (req, res) {
     var token = getToken(req.headers);
@@ -113,6 +118,7 @@ router.put('/password/:id', passport.authenticate('jwt', { session: false }), fu
 
 
 
+// api call get /api/users/:id
 ///////////////// RETURN A SPECIFIC USER ////////////////////////
 router.get('/:id', function (req, res) {
     var token = getToken(req.headers);
