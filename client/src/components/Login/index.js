@@ -84,11 +84,9 @@ class LoginForm extends Component {
     render() {
 
         return (
-            <div className='login-page-container'>
+            <div className='login-page-container' style={{ marginTop: "80px" }}>
 
                 <div className='form-container'>
-
-                    <div className='login-page-home-link'><Link to='/'><Icon disabled name='arrow left' />Back to Home</Link></div>
 
                     {this.state.error ? this.errorMessage() : null}
 

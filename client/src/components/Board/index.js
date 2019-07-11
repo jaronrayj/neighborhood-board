@@ -33,7 +33,7 @@ export default class Board extends Component {
 
     render() {
         return (
-            <Row>
+            <Row style={{ marginTop: "80px" }}>
                 <Col sm={3}>
                     <EventContainer />
                 </Col>

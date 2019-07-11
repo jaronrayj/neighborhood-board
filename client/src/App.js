@@ -9,6 +9,7 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 
 // const routes = [
 //   {
@@ -38,9 +39,9 @@ class App extends Component {
   render() {
     return (
       <>
+        <NavBar />
         <Router>
           <Switch location={this.props.location}>
-            <Route exact path='/' exact component={NavBar} />
             <Route exact path="/login" exact component={LoginForm} />
             <Route exact path="/signup" exact component={Signup} />
             <Route exact path="/board" exact component={Board} />

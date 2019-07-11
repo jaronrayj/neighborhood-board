@@ -1,29 +1,87 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Menu, Label, Button, Icon } from 'semantic-ui-react'
+import axios from 'axios'
+import "./style.css"
 
-class NavBar extends Component {
+export default class NavBar extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            route: ""
+  state = {
+      update: false,
+      authenticated: false
+  }
+
+  componentDidMount=()=>{
+
+    var currentComponent = this
+
+    axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+
+    axios.get('/api/users/authenticate').then(function(response){
+      currentComponent.setState({authUser: response.data.authenticatedUser, update: true, authenticated: true}, function(response){
+      })
+    }).catch(function(err){
+      console.log(err)
+      
+    })
+  }
+
+  logout = () => {
+    localStorage.removeItem('jwtToken');
+    window.location.reload();
+  }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    // const { activeItem } = this.state
+
+    return (
+      <Menu className="navbarheader" stackable style={{position: "fixed", top: "0", left: "0", width: "100%", zIndex:"100"}}>
+        <Menu.Item>
+          <img alt='label' src="https://via.placeholder.com/50x50" />
+            <h2>Neighborhood Board</h2>
+        </Menu.Item>
+          
+
+        {/* <Menu.Item
+          name='features'
+          active={activeItem === 'features'}
+          onClick={this.handleItemClick}
+        >
+          Blog
+        </Menu.Item> */}
+
+        {this.state.authenticated ? null :
+        <Menu.Item position='right'>
+                <Button icon labelPosition='left' href='/login'  style={{backgroundColor: "#DF3525", color: "white"}}>
+                    <Icon name='arrow right' />
+                    Login
+                </Button>
+        </Menu.Item>
         }
-    }
 
-    render() {
-        return (
-            <>
-                <Link to='/signup'>
-                    <Button>Sign Up</Button>
-                </Link>
+        {this.state.authenticated ? 
+            <Menu.Item  position='right'>
+                <Label as='a' style={{backgroundColor: "lightgrey", color: "#EF1B36"}} image href='/profile'>
+                    <img alt='label user' src='https://react.semantic-ui.com/images/avatar/small/christian.jpg' />
+                    {this.state.authUser.firstName} {this.state.authUser.lastName}
+                    {/* <Label.Detail>{this.state.authUser.role}</Label.Detail> */}
+                </Label>
+            </Menu.Item>
+          
+        : null}
 
-                <Link to='/login'>
-                    <Button>Login</Button>
-                </Link>
-            </>
-        )
-    }
+        {this.state.authenticated ? 
+            <Menu.Item name='Logout' >
+                <Button icon labelPosition='left' onClick={this.logout} style={{backgroundColor: "#EF1B36", color: "white"}}>
+                    <Icon name='arrow left' />
+                    Logout
+                </Button>
+            </Menu.Item>
+            
+        : null}
+
+      </Menu>
+    )
+  }
 }
-
-export default NavBar;

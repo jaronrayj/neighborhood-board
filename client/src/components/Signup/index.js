@@ -96,11 +96,9 @@ class LoginForm extends Component {
     render() {
 
         return (
-            <div className='signup-page-container'>
+            <div className='signup-page-container' style={{ marginTop: "40px" }}>
 
                 <div className='signup-form-container'>
-
-                    <div className='signup-page-home-link'><Link to='/'><Icon disabled name='arrow left' />Back to Home</Link></div>
 
                     <h1 style={{ color: "white", fontSize: "2rem", textAlign: "center", padding: "5%" }}>New Account Creation</h1>
 
