@@ -79,7 +79,7 @@ class LoginForm extends Component {
 
         this.setState({ submitting: true })
 
-        axios.post('api/auth/signup', this.state)
+        axios.post('/api/auth/signup', this.state)
             .then((result) => {
 
                 if (result.data.success) {
@@ -129,16 +129,6 @@ class LoginForm extends Component {
                         <Form.Field>
                             <label style={{ color: "#FFCB39" }}>Username</label>
                             <input onChange={this.handleInputChange} placeholder='my_username' name='username' />
-                        </Form.Field>
-
-                        <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Start Date</label>
-                            <input type='date' onChange={this.handleInputChange} name='startDate' />
-                        </Form.Field>
-
-                        <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Slack Handle</label>
-                            <input onChange={this.handleInputChange} placeholder='@walzy' name='slackHandle' />
                         </Form.Field>
 
                         <Form.Field>

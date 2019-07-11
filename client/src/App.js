@@ -7,11 +7,34 @@ import NavBar from './components/NavBar'
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from "react-router-dom";
 
+const routes = [
+  {
+    path: '/',
+    key: 'home',
+    component: 'NavBar'
+  },
+  {
+    path: '/login',
+    key: 'login',
+    component: 'LoginForm'
+  },
+  {
+    path: '/signup',
+    key: 'signup',
+    component: 'Signup'
+  },
+  {
+    path: '/board',
+    key: 'board',
+    component: 'Board'
+  }
+]
+
 class App extends Component {
+
 
   state = {
     isAuthenticated: false,
@@ -40,6 +63,12 @@ class App extends Component {
       <>
         <Router>
           <Switch location={this.props.location}>
+            {/* {routes.map(e => {
+              <>
+                <Route exact path={e.path} key={e.key} exact component={e.component} />
+              </>
+            })
+            } */}
             <Route exact path='/' exact component={NavBar} />
             <Route exact path="/login" exact component={LoginForm} />
             <Route exact path="/signup" exact component={Signup} />
