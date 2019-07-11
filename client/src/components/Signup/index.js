@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Button, Form, Message, Loader } from 'semantic-ui-react'
+import { Button, Form, Message, Loader, Container } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -96,7 +96,7 @@ class LoginForm extends Component {
     render() {
 
         return (
-            <div className='signup-page-container' style={{ marginTop: "40px" }}>
+            <Container className='signup-page-container' style={{ marginTop: "40px" }}>
 
                 <div className='signup-form-container'>
 
@@ -146,7 +146,7 @@ class LoginForm extends Component {
                         <p style={{ color: "white", marginTop: "30px" }}>Already have an account? <Link to='/login' style={{ color: "#FFCB39", paddingLeft: "9px" }}> Login Here</Link></p>
                     </Form>
                 </div>
-            </div>
+            </Container>
 
         )
     }

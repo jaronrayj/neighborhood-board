@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Button, Form, Message, Loader } from 'semantic-ui-react'
+import { Button, Form, Message, Loader, Container } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 // import './style.css'
@@ -84,7 +84,7 @@ class LoginForm extends Component {
     render() {
 
         return (
-            <div className='login-page-container' style={{ marginTop: "80px" }}>
+            <Container className='login-page-container' style={{ marginTop: "80px" }}>
 
                 <div className='form-container'>
 
@@ -113,7 +113,7 @@ class LoginForm extends Component {
 
                 </div>
 
-            </div>
+            </Container>
 
         )
     }
