@@ -7,8 +7,7 @@ router.route("/")
     .post(discussionsController.create);
 
 //Match with "/api/discussions/:id"
-router
-    .route("/:id")
+router.route("/:id")
     .get(discussionsController.findById)
     .put(discussionsController.update)
     .delete(discussionsController.remove);

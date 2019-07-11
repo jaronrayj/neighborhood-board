@@ -1,9 +1,10 @@
 // Exporting an object containing all of our models
 
 module.exports = {
-    Event: require("./Event"),
-    Discussion: require("./Discussion"),
-    Marketplace: require("./Marketplace")
+    Event: require("./event"),
+    Discussion: require("./discussion"),
+    Marketplace: require("./marketplace"),
+    User: require("./user")
 
   };
   
