@@ -124,17 +124,4 @@ router.get('/:id', function (req, res) {
 });
 ///////////////////////////////////////////////////////////////
 
-router.post('/password-reset/:hash', function (req, res) {
-    usersController.updatePasswordHash(req, res)
-});
-
-router.post('/forgot-password', function (req, res) {
-    usersController.unknownUpdatePassword(req, res)
-});
-
-
-router.get('/verify-hash/:hash', function (req, res) {
-    usersController.verifyHash(req, res)
-});
-
 module.exports = router;

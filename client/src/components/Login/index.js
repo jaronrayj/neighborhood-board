@@ -72,9 +72,6 @@ class LoginForm extends Component {
                 if (error.response.status === 401) {
                     console.log(error)
                     this.setState({ message: 'Login failed. Username or password not match' });
-                } else if (error.response.status === 403) {
-                    console.log(error)
-                    this.setState({ message: 'You have not verified your email address.  Please check your email' });
                 } else if (error.response.status === 400) {
                     this.setState({ message: "Authentication failed. Invalid Username." })
                 }
@@ -114,7 +111,6 @@ class LoginForm extends Component {
 
                         <br />
                         <p style={{ color: "white", marginTop: "30px" }}>To create a new account <Link to='/signup' style={{ color: "#FFCB39", paddingLeft: "9px" }}>Click Here</Link></p>
-                        <p style={{ color: "white", marginTop: "30px" }}>Forgot your password? <Link to='/forgot-password' style={{ color: "#FFCB39", paddingLeft: "9px" }}>Click Here</Link></p>
                     </Form>
 
                 </div>

@@ -56,23 +56,17 @@ router.post('/login', function (req, res) {
         if (!user) {
             res.status(400).send({ success: false, message: 'Authentication failed. User not found.' });
         } else {
-
-            if (user.active) {
-                // check if password matches
-                user.comparePassword(req.body.password, function (err, isMatch) {
-                    if (isMatch && !err) {
-                        // if user is found and password is right create a token
-                        var token = jwt.sign(user.toJSON(), settings.secret);
-                        // return the information including token as JSON
-                        res.json({ success: true, token: 'JWT ' + token });
-                    } else {
-                        res.status(401).json({ success: false, message: 'Authentication failed. Incorrect password.' });
-                    }
-                });
-            } else {
-                res.status(403).json({ success: false, message: 'Authentication failed. Please verify your email address.' });
-            }
-
+            // check if password matches
+            user.comparePassword(req.body.password, function (err, isMatch) {
+                if (isMatch && !err) {
+                    // if user is found and password is right create a token
+                    var token = jwt.sign(user.toJSON(), settings.secret);
+                    // return the information including token as JSON
+                    res.json({ success: true, token: 'JWT ' + token });
+                } else {
+                    res.status(401).json({ success: false, message: 'Authentication failed. Incorrect password.' });
+                }
+            });
         }
     });
 });

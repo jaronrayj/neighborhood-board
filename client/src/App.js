@@ -63,12 +63,6 @@ class App extends Component {
       <>
         <Router>
           <Switch location={this.props.location}>
-            {/* {routes.map(e => {
-              <>
-                <Route exact path={e.path} key={e.key} exact component={e.component} />
-              </>
-            })
-            } */}
             <Route exact path='/' exact component={NavBar} />
             <Route exact path="/login" exact component={LoginForm} />
             <Route exact path="/signup" exact component={Signup} />

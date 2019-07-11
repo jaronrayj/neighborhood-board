@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import useEvent from '../../hooks/useEvent';
+import React from 'react';
+// import useEvent from '../../hooks/useEvent';
 import Event from '../Event'
 import { Card } from 'semantic-ui-react'
 import EventModal from '../EventModal'
