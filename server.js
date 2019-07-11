@@ -22,17 +22,6 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/neighborhood-board", { useNewUrlParser: true });
 
-// mongoose.connect(MONGODB_URI);
-// mongoose.connect(MONGODB_URI,{ useNewUrlParser: true });
-
-// //test mongoose connection
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error: '));
-// db.once('open', function() {
-// //   //we're connected!
-// });
-
-
 // Define API routes here
 
 // Send every other request to the React app
