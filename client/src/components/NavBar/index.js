@@ -12,7 +12,7 @@ export default class NavBar extends Component {
 
   componentDidMount = () => {
 
-    var currentComponent = this
+    const currentComponent = this
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
 
@@ -33,7 +33,6 @@ export default class NavBar extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    // const { activeItem } = this.state
 
     return (
       <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100" }}>
@@ -41,15 +40,6 @@ export default class NavBar extends Component {
           <img alt='label' src="https://via.placeholder.com/50x50" />
               <h2 >Neighborhood Board</h2>
         </Menu.Item>
-
-
-        {/* <Menu.Item
-          name='features'
-          active={activeItem === 'features'}
-          onClick={this.handleItemClick}
-        >
-          Blog
-        </Menu.Item> */}
 
         {this.state.authenticated ? null :
           <Menu.Item position='right'>
