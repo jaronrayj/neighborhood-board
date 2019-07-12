@@ -56,7 +56,6 @@ class EventContainer extends Component {
         const currentComponent = this;
 
         Axios.get("/api/events").then(function (res) {
-            console.log("TCL: EventContainer -> componentDidMount -> res.data", res.data);
             currentComponent.setState({events: res.data})
         }).catch(function(err){
             console.log(err);
