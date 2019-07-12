@@ -51,9 +51,13 @@ class EventModal extends Component {
             description: "",
             date: "",
             startTime: ""
+<<<<<<< HEAD
         })
 
         this.handleClose();
+=======
+        });
+>>>>>>> cf0934076422185807cc1ddcbe159967b6cd3ab2
     };
 
     render() {
