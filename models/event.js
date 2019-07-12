@@ -6,8 +6,8 @@ const eventSchema = new Schema({
   userId: { type: String },
   description: String,
   date: { type: Date, default: Date.now },
-  startTime: { type: Date },
-  endTime: { type: Date },
+  startTime: { type: String },
+  endTime: { type: String },
 });
 
 const Event = mongoose.model("Event", eventSchema);
