@@ -47,7 +47,9 @@ class ModalDiscussion extends Component {
         this.setState({
             title: "",
             body: ""
-        });
+        })
+
+        this.handleClose();
     };
 
     render() {
