@@ -29,6 +29,7 @@ class ModalDiscussion extends Component {
 
     handleClose() {
         this.setState({ show: false });
+        this.props.loadData();
     }
 
     handleShow() {
