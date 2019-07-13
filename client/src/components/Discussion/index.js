@@ -1,42 +1,31 @@
 import React from "react";
+import axios from "axios";
 import Post from "../Post";
 import "./Discussion.css";
 import ModalDiscussion from "../PostsModal";
 
-function Feed(dataFromDataBase) {
-    //I will need to figure out how to connect to the db when we have it created
-    //this is just filler test data
-    const posts = [
-        {
-            username: "Username1",
-            title: "Subject Line",
-            date: "10/1/20",
-            body: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested."
+export default class Feed extends React.Component {
 
-        },
-        {
-            username: "Username2",
-            title: "Subject Line",
-            date: "6/6/20",
-            body: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+    state = {
+        posts: []
+    }
 
-        },
-        {
-            username: "Username3",
-            title: "Subject Line",
-            date: "8/12/20",
-            body: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from by Cicero are also reproduced in their exact original form"
+    componentDidMount() {
+        axios.get("/api/discussions/")
+            .then(res => {
+                const posts = res.data;
+                //this refers to the Feed class so basically = "Feed.setState"
+                this.setState({ posts });
+            });
+    }
 
-        }
-    ];
+    render() {
+        return (
+            <div className="feed-body">
 
-    return (
-        <div className="feed-body">
-
-            <ModalDiscussion />
-            {posts.map(post => Post(post))}
-        </div>
-    );
-}
-
-export default Feed;
+                <ModalDiscussion />
+                {this.state.posts.map(post => <Post data={post}/>)}
+            </div>
+        );
+    }
+};
