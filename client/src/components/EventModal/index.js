@@ -43,6 +43,9 @@ class EventModal extends Component {
 
         Axios.post('/api/events', { title, description, date, startTime })
             .then((result) => {
+                if (result.data === true) {
+                    this.props.view();
+                }
                 console.log(result);
             })
 
@@ -51,14 +54,11 @@ class EventModal extends Component {
             description: "",
             date: "",
             startTime: ""
-<<<<<<< HEAD
         })
 
         this.handleClose();
-=======
-        });
->>>>>>> cf0934076422185807cc1ddcbe159967b6cd3ab2
-    };
+    }
+
 
     render() {
         return (
