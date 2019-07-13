@@ -1,60 +1,30 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Post from "../Post";
 import "./Discussion.css";
 import ModalDiscussion from "../PostsModal";
-import Axios from 'axios';
 
-class Feed extends Component {
-    //I will need to figure out how to connect to the db when we have it created
-    //this is just filler test data
-    // const posts = [
-    //     {
-    //         username: "Username1",
-    //         title: "Subject Line",
-    //         date: "10/1/20",
-    //         body: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested."
-
-    //     },
-    //     {
-    //         username: "Username2",
-    //         title: "Subject Line",
-    //         date: "6/6/20",
-    //         body: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
-
-    //     },
-    //     {
-    //         username: "Username3",
-    //         title: "Subject Line",
-    //         date: "8/12/20",
-    //         body: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from by Cicero are also reproduced in their exact original form"
-
-    //     }
-    // ];
-
+export default class Feed extends React.Component {
     state = {
         posts: []
     }
 
-    componentDidMount = () => {
-        const currentComponent = this;
-
-        Axios.get("/api/discussions").then(function (res) {
-            currentComponent.setState({ posts: res.data })
-        }).catch(function (err) {
-            console.log(err);
-        })
+    componentDidMount() {
+        axios.get("/api/discussions/")
+            .then(res => {
+                const posts = res.data;
+                //this refers to the Feed class so basically = "Feed.setState"
+                this.setState({ posts });
+            });
     }
 
     render() {
-
         return (
-            <div className="feed-body" >
+            <div className="feed-body">
 
                 <ModalDiscussion />
-                {this.state.posts.map(post => Post(post))}
-            </div >
+                {this.state.posts.map(post => <Post data={post}/>)}
+            </div>
         );
     }
-}
-
-export default Feed;
+};
