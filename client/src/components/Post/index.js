@@ -3,11 +3,37 @@ import React from "react";
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import "./Post.css";
+import { Feed } from "semantic-ui-react";
 const axios = require("axios");
 
 export default class Post extends React.Component {
-  state = {
-    isDeleted: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDeleted: false
+    };
+  }
+
+  deleteClick = (event) => {
+    let source = event.target || event.srcElement;
+    console.log(source);
+    event.preventDefault();
+    console.log("Delete button clicked");
+
+    let postId = source.getAttribute("id").replace("delete-btn-", "");
+
+    axios.delete("/api/discussions/" + postId)
+      .then(req => {
+        console.log("Deleted post at id: " + postId + "!");
+        //TODO: reload web page
+        this.props.loadData();
+      })
+      .catch(err => {
+        this.props.loadData();
+
+        console.log("Error occured while tryin to delete post at id: " + postId);
+      });
+
   }
 
   render(){
@@ -15,24 +41,6 @@ export default class Post extends React.Component {
       return;
     }
 
-    function deleteClick(event){
-      let source = event.target || event.srcElement;
-      console.log(source);
-      event.preventDefault();
-      console.log("Delete button clicked");
-
-      let postId = source.getAttribute("id").replace("delete-btn-", "");
-
-      axios.delete("/api/discussions/" + postId)
-        .then(req => {
-          console.log("Deleted post at id: " + postId + "!");
-          //TODO: reload web page
-        })
-        .catch(err => {
-          console.log("Error occured while tryin to delete post at id: " + postId);
-        });
-
-    }
 
     function commentClick(event){
       event.preventDefault();
@@ -63,7 +71,7 @@ export default class Post extends React.Component {
         <Card.Footer>
           <Button data-id={this.props.data._id} onClick={commentClick} className="post-comment-button" variant="outline-info" size="sm">Comment</Button>
           <Button data-id={this.props.data._id} onClick={editClick} className="post-edit-button" variant="outline-secondary" size="sm">Edit</Button>
-          <Button id={"delete-btn-"+this.props.data._id} onClick={deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
+          <Button id={"delete-btn-"+this.props.data._id} onClick={this.deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
         </Card.Footer>
       </Card>
 
