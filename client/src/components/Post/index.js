@@ -44,7 +44,7 @@ function Post(props) {
         <Card.Text>{props.body}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <Button onClick={commentClick} className="post-comment-button" variant="outline-info" size="sm">Comment</Button>
+        <Button onClick={commentClick} className="post-comment-button" variant="outline-primary" size="sm">Comment</Button>
         <Button onClick={editClick} className="post-edit-button" variant="outline-secondary" size="sm">Edit</Button>
         <Button onClick={deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
       </Card.Footer>

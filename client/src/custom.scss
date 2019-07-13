@@ -1,4 +1,8 @@
-$body-bg: #000;
+//   $body-bg: url("");
+
+body {
+    background-image: url("https://bostonpads.com/wp-content/uploads/2017/05/conduct-background-check-on-boston-neighborhoods.jpg");
+  }
 
 @import '~bootstrap/scss/bootstrap.scss';
 

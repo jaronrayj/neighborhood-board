@@ -102,13 +102,13 @@ class LoginForm extends Component {
                         </Form.Field>
 
                         {this.state.submitting ?
-                            <Button type='submit' disabled={true} onClick={this.handleSubmit} style={{ backgroundColor: "#FFCB39", color: "white", width: "100%", marginTop: "20px" }}><Loader size='big' active inverted />Logging In</Button>
+                            <Button type='submit' disabled={true} onClick={this.handleSubmit} style={{ backgroundColor: "#800000", color: "white", width: "100%", marginTop: "20px" }}><Loader size='big' active inverted />Logging In</Button>
                             :
-                            <Button type='submit' onClick={this.handleSubmit} style={{ backgroundColor: "#FFCB39", color: "white", width: "100%", marginTop: "20px" }}>Login</Button>
+                            <Button type='submit' onClick={this.handleSubmit} style={{ backgroundColor: "#800000", color: "white", width: "100%", marginTop: "20px" }}>Login</Button>
                         }
 
                         <br />
-                        <p style={{ color: "white", marginTop: "30px" }}>To create a new account <Link to='/signup' style={{ color: "#FFCB39", paddingLeft: "9px" }}>Click Here</Link></p>
+                        <p style={{ color: "white", marginTop: "30px" }}>To create a new account <Link to='/signup' style={{ color: "#F5FFFA", paddingLeft: "9px" }}>Click Here</Link></p>
                     </Form>
 
                 </div>
