@@ -51,8 +51,11 @@ class EventModal extends Component {
             description: "",
             date: "",
             startTime: ""
-        });
-    };
+        })
+
+        this.handleClose();
+    }
+
 
     render() {
         return (
@@ -79,7 +82,6 @@ class EventModal extends Component {
                             </Form.Group>
                             <Form.Group id="eventDate">
                                 <Form.Label>Date of Event</Form.Label>
-                                {/* this form.control might not work */}
                                 <Form.Control as="input" value={this.state.date} onChange={this.handleInputChange} name="date" />
                             </Form.Group>
                             <Form.Group id="eventTime">
