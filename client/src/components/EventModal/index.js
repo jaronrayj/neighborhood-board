@@ -16,7 +16,7 @@ class EventModal extends Component {
             title: "",
             description: "",
             date: "",
-            time: ""
+            startTime: ""
         };
     }
 
@@ -39,9 +39,9 @@ class EventModal extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { title, description, date, time } = this.state;
+        const { title, description, date, startTime } = this.state;
 
-        Axios.post('/api/events', { title, description, date, time })
+        Axios.post('/api/events', { title, description, date, startTime })
             .then((result) => {
                 console.log(result);
             })
@@ -50,7 +50,7 @@ class EventModal extends Component {
             title: "",
             description: "",
             date: "",
-            time: ""
+            startTime: ""
         });
     };
 
@@ -84,7 +84,7 @@ class EventModal extends Component {
                             </Form.Group>
                             <Form.Group id="eventTime">
                                 <Form.Label>Time of Event</Form.Label>
-                                <Form.Control as="input" value={this.state.time} onChange={this.handleInputChange} name="time" />
+                                <Form.Control as="input" value={this.state.startTime} onChange={this.handleInputChange} name="startTime" />
                             </Form.Group>
                         </Form>
                     </Modal.Body>

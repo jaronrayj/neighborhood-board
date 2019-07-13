@@ -1,11 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import Post from "../Post";
 import "./Discussion.css";
 import ModalDiscussion from "../PostsModal";
 
 export default class Feed extends React.Component {
-
     state = {
         posts: []
     }
