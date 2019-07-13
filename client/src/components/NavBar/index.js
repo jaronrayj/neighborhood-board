@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Menu, Label, Button, Icon } from 'semantic-ui-react'
+import { Menu, Label, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import "./style.css"
+import logo from "../../images/logo.png"
 
 export default class NavBar extends Component {
 
@@ -12,7 +13,7 @@ export default class NavBar extends Component {
 
   componentDidMount = () => {
 
-    var currentComponent = this
+    const currentComponent = this
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
 
@@ -33,7 +34,6 @@ export default class NavBar extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    // const { activeItem } = this.state
 
     return (
       <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100" }}>
@@ -41,15 +41,6 @@ export default class NavBar extends Component {
           <img alt='label' src="https://emojis.wiki/emoji-pics/facebook/house-facebook.png" />
               <h2 >Neighborhood Board</h2>
         </Menu.Item>
-
-
-        {/* <Menu.Item
-          name='features'
-          active={activeItem === 'features'}
-          onClick={this.handleItemClick}
-        >
-          Blog
-        </Menu.Item> */}
 
         {this.state.authenticated ? null :
           <Menu.Item position='right'>

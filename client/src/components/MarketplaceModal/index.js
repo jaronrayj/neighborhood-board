@@ -53,7 +53,8 @@ class MarketplaceModal extends Component {
             price: "",
             contactEmail: "",
             contactPhone: ""
-        });
+        })
+        this.handleClose();
         // console.log(this.state);
     };
 

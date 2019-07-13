@@ -29,6 +29,7 @@ class ModalDiscussion extends Component {
 
     handleClose() {
         this.setState({ show: false });
+        this.props.loadData();
     }
 
     handleShow() {
@@ -47,7 +48,9 @@ class ModalDiscussion extends Component {
         this.setState({
             title: "",
             body: ""
-        });
+        })
+
+        this.handleClose();
     };
 
     render() {

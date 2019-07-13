@@ -41,9 +41,9 @@ class App extends Component {
         <NavBar />
         <Router>
           <Switch location={this.props.location}>
-            <Route exact path="/login" exact component={LoginForm} />
-            <Route exact path="/signup" exact component={Signup} />
-            <Route exact path="/board" exact component={Board} />
+            <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/board" component={Board} />
           </Switch>
         </Router>
       </>
