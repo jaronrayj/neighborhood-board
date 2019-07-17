@@ -1,8 +1,17 @@
 
 /* this will style the body where the feed will render */
-.feed-body{
+/* .feed-body{
  width: 100%;
  background-color: lightgrey;
- height: 100%;
+ height: 650px;
  padding: 30px;
+} */
+
+.feed-body{
+    margin: 5px; 
+    padding: 30px; 
+    width: 100%; 
+    height: 600px; 
+    overflow: auto; 
+    text-align: justify; 
 }

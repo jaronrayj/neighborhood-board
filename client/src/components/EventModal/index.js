@@ -68,7 +68,7 @@ class EventModal extends Component {
     render() {
         return (
             <>
-                <Button variant="primary" onClick={this.handleShow}>
+                <Button variant="secondary" size="sm" onClick={this.handleShow}>
                     Post
             </Button>
 
@@ -102,8 +102,8 @@ class EventModal extends Component {
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button onClick={this.handleClose} variant="secondary">Close</Button>
-                        <Button variant="primary" onClick={this.handleSubmit}>Save changes</Button>
+                        <Button onClick={this.handleClose} variant="danger">Close</Button>
+                        <Button variant="outline-primary" onClick={this.handleSubmit}>Save changes</Button>
                     </Modal.Footer>
                 </Modal>
             </>
