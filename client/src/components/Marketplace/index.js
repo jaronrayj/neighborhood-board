@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import API from "../../utils/Api";
-// import useEvent from '../../hooks/useEvent';
+// import API from "../../utils/Api";
 import MarketItem from '../MarketItem';
 import { Card } from 'semantic-ui-react';
 import MarketplaceModal from '../MarketplaceModal';
