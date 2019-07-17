@@ -12,12 +12,13 @@ class EventModal extends Component {
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
 
         this.state = {
             show: false,
             title: "",
             description: "",
-            date: new Date(),
+            startDate: new Date(),
             startTime: ""
         };
     }
@@ -31,9 +32,9 @@ class EventModal extends Component {
         });
     };
 
-    handleChange(date) {
+    handleDateChange(date) {
         this.setState({
-            date: date
+            startDate: date
         });
     }
 
@@ -91,7 +92,11 @@ class EventModal extends Component {
                             <Form.Group id="eventDate">
                                 <Form.Label>Date of Event</Form.Label>
                                 {/* <Form.Control as="input" value={this.state.date} onChange={this.handleInputChange} name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" /> */}
-                                <DatePicker as="input" value={this.state.date} onChange={this.handleChange} name="date" />
+                                {/* <DatePicker as="input" value={this.state.startDate} onChange={this.handleDateChange} name="date" /> */}
+                                <DatePicker
+                                    selected={this.state.startDate}
+                                    onChange={this.handleDateChange}
+                                />
                                 <Form.Text className="text-muted">eg: 06/06/06</Form.Text>
                             </Form.Group>
                             <Form.Group id="eventTime">
