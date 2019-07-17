@@ -3,8 +3,11 @@ import React from 'react';
 import { Feed } from 'semantic-ui-react'
 
 function updateDate(date) {
+    console.log("TCL: updateDate -> date", date);
     let splitDate = date.split("-")
+    console.log("TCL: updateDate -> splitDate", splitDate);
     let day = splitDate[2].split("T")
+    console.log("TCL: updateDate -> splitDate", splitDate);
 
     const newDate = {
         month: splitDate[1],
@@ -20,7 +23,7 @@ function updateDate(date) {
 function Event(props) {
     const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
-    const date = updateDate(props.date);
+    const date = updateDate(props.startDate);
 
     return (
         <Feed>
