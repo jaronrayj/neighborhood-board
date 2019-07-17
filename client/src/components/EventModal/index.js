@@ -18,8 +18,7 @@ class EventModal extends Component {
             show: false,
             title: "",
             description: "",
-            startDate: new Date(),
-            startTime: ""
+            startDate: ""
         };
     }
 
@@ -48,9 +47,10 @@ class EventModal extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { title, description, date, startTime } = this.state;
+        const { title, description, startDate } = this.state;
+        console.log(title, description, startDate);
 
-        Axios.post('/api/events', { title, description, date, startTime })
+        Axios.post('/api/events', { title, description, startDate })
             .then((result) => {
                 console.log(result);
             })
@@ -58,8 +58,8 @@ class EventModal extends Component {
         this.setState({
             title: "",
             description: "",
-            date: "",
-            startTime: ""
+            // date: "",
+            // startDate: 
         })
 
         this.handleClose();
@@ -90,19 +90,17 @@ class EventModal extends Component {
                                 <Form.Control as="textarea" value={this.state.description} onChange={this.handleInputChange} name="description" />
                             </Form.Group>
                             <Form.Group id="eventDate">
-                                <Form.Label>Date of Event</Form.Label>
-                                {/* <Form.Control as="input" value={this.state.date} onChange={this.handleInputChange} name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" /> */}
-                                {/* <DatePicker as="input" value={this.state.startDate} onChange={this.handleDateChange} name="date" /> */}
+                                <Form.Label>Date of Event: </Form.Label>
+                                <br />
                                 <DatePicker
                                     selected={this.state.startDate}
                                     onChange={this.handleDateChange}
                                 />
-                                <Form.Text className="text-muted">eg: 06/06/06</Form.Text>
                             </Form.Group>
-                            <Form.Group id="eventTime">
+                            {/* <Form.Group id="eventTime">
                                 <Form.Label>Time of Event</Form.Label>
                                 <Form.Control as="input" value={this.state.startTime} onChange={this.handleInputChange} name="startTime" />
-                            </Form.Group>
+                            </Form.Group> */}
                         </Form>
                     </Modal.Body>
 

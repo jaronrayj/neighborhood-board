@@ -17,7 +17,11 @@ module.exports = {
     },
     create: function (req, res) {
 
+        date = new Date(req.body.startDate)
+        console.log("request body for event")
+        console.log(date)
         console.log(req.body);
+
         db.Event
             .create(req.body)
             .then(dbEvent => res.json(dbEvent))

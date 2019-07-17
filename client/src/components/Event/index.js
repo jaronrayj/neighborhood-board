@@ -8,7 +8,7 @@ function Event(props) {
     return (
         <Feed>
             <Feed.Event>
-                <Feed.Label>{props.date}</Feed.Label>
+                <Feed.Label>{props.startDate}</Feed.Label>
                 <Feed.Content>
                     <h4>{props.title}</h4>
 

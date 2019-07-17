@@ -81,7 +81,7 @@ class EventContainer extends Component {
                                         key={e._id}
                                         title={e.title}
                                         description={e.description}
-                                        date={e.date}
+                                        startDate={e.startDate}
                                     />
                                 </>
                             )
