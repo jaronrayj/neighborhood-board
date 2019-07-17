@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import React, { Component } from 'react';
 import Axios from 'axios';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class EventModal extends Component {
     constructor(props, context) {
@@ -15,7 +17,7 @@ class EventModal extends Component {
             show: false,
             title: "",
             description: "",
-            date: "",
+            date: new Date(),
             startTime: ""
         };
     }
@@ -28,6 +30,12 @@ class EventModal extends Component {
             [name]: value
         });
     };
+
+    handleChange(date) {
+        this.setState({
+            date: date
+        });
+    }
 
     handleClose() {
         this.setState({ show: false });
@@ -82,7 +90,9 @@ class EventModal extends Component {
                             </Form.Group>
                             <Form.Group id="eventDate">
                                 <Form.Label>Date of Event</Form.Label>
-                                <Form.Control as="input" value={this.state.date} onChange={this.handleInputChange} name="date" />
+                                {/* <Form.Control as="input" value={this.state.date} onChange={this.handleInputChange} name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" /> */}
+                                <DatePicker as="input" value={this.state.date} onChange={this.handleChange} name="date" />
+                                <Form.Text className="text-muted">eg: 06/06/06</Form.Text>
                             </Form.Group>
                             <Form.Group id="eventTime">
                                 <Form.Label>Time of Event</Form.Label>
