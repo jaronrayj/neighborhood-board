@@ -53,16 +53,18 @@ class EventContainer extends Component {
 
 
     componentDidMount = () => {
-
+        this.loadData();
+    }
+    
+    loadData = () => {
         const currentComponent = this;
 
         Axios.get("/api/events").then(function (res) {
             currentComponent.setState({ events: res.data })
         }).catch(function (err) {
             console.log(err);
-        })
+        });
     }
-
 
     render() {
 
@@ -72,7 +74,9 @@ class EventContainer extends Component {
                     <Card>
                         <Card.Content>
                             <Card.Header>Upcoming Events
-                        <EventModal />
+                        <EventModal
+                            loadData={this.loadData}
+                        />
                             </Card.Header>
                         </Card.Content>
                         <Card.Content>
