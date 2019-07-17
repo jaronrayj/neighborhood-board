@@ -25,7 +25,6 @@ export default class Post extends React.Component {
     axios.delete("/api/discussions/" + postId)
       .then(req => {
         console.log("Deleted post at id: " + postId + "!");
-        //TODO: reload web page
         this.props.loadData();
       })
       .catch(err => {
