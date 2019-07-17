@@ -6,7 +6,7 @@ module.exports = {
         db.Discussion
         // these are functions of Mongoose
             .find(req.query)
-            .sort({ date: -1 }) //sorts it descending
+            .sort({ date: 1 }) //sorts it ascending
             .then(dbModel => res.json(dbModel)) //sends the json of all Discussions
             .catch(err => res.status(422).json(err));
         },

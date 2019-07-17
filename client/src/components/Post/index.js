@@ -3,7 +3,7 @@ import React from "react";
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import "./Post.css";
-import { Feed } from "semantic-ui-react";
+// import { Feed } from "semantic-ui-react";
 const axios = require("axios");
 
 export default class Post extends React.Component {
