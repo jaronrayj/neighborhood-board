@@ -21,10 +21,6 @@ export default class Board extends Component {
 
             currentComponent.setState({authenticatedUser: response.data.authenticatedUser})
 
-            axios.get(`/api/projects`).then(function(response){
-                currentComponent.setState({project: response.data})
-            }).catch(function(error){console.log(error)})
-
         }).catch(function(error){
             console.log(error)
             window.location='/login'

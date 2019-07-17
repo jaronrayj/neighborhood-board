@@ -4,9 +4,7 @@ import { Feed } from 'semantic-ui-react'
 
 function updateDate(date) {
     let splitDate = date.split("-")
-    console.log("TCL: updateDate -> splitDate", splitDate);
     let day = splitDate[2].split("T")
-    console.log("TCL: updateDate -> day", day);
 
     const newDate = {
         month: splitDate[1],
