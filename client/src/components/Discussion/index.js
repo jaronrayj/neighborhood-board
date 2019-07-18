@@ -30,17 +30,19 @@ export default class Feed extends Component {
 
     render() {
         return (
-            <div className="feed-body">
-
+            
+            <div className="discussion-body">
                 <ModalDiscussion 
                   loadData={this.loadData}
                 />
-                {this.state.posts.map(post => {
-                  return <Post 
-                    loadData={this.loadData}
-                    data={post}
-                  />
-                })}
+                <div className="feed-body">
+                    {this.state.posts.map(post => {
+                    return <Post 
+                        loadData={this.loadData}
+                        data={post}
+                    />
+                    })}
+                </div>
             </div>
         );
     }
