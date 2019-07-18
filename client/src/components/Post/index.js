@@ -62,7 +62,7 @@ export default class Post extends React.Component {
       <Card>
         <Card.Header>
           <span>{this.props.data.username}</span>
-          <span className="time-span">{this.props.data.date}</span>
+          {/* <span className="time-span">{this.props.data.date}</span> */}
         </Card.Header>
         <Card.Body>
           <Card.Title>{this.props.data.title}</Card.Title>
