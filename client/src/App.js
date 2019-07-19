@@ -4,6 +4,7 @@ import LoginForm from "./components/Login";
 import Signup from './components/Signup'
 import Board from './components/Board'
 import NavBar from './components/NavBar'
+import backgroundImage from './components/images/silhouette.jpg'
 import {
   BrowserRouter as Router,
   Route,
@@ -46,6 +47,7 @@ class App extends Component {
             <Route exact path="/board" component={Board} />
           </Switch>
         </Router>
+        <img className='background' src={backgroundImage} />
       </>
     );
   }

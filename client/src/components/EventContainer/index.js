@@ -55,44 +55,46 @@ class EventContainer extends Component {
     componentDidMount = () => {
         this.loadData();
     }
-    
+
     loadData = () => {
         const currentComponent = this;
 
         Axios.get("/api/events").then(function (res) {
             currentComponent.setState({ events: res.data })
+            console.log("TCL: EventContainer -> loadData -> res.data", res.data);
         }).catch(function (err) {
             console.log(err);
         });
     }
 
     render() {
-
+        console.log("EVENTS")
+        console.log(this.state.events)
         return (
             <div className="event-container">
-                    <Card>
-                        <Card.Content>
-                            <Card.Header>Upcoming Events
+                <Card>
+                    <Card.Content>
+                        <Card.Header>Upcoming Events
                         <EventModal
-                            loadData={this.loadData}
-                        />
-                            </Card.Header>
-                        </Card.Content>
-                        <Card.Content>
-                            {
-                                this.state.events.map(e =>
-                                    <>
-                                        <Event
-                                            key={e._id}
-                                            title={e.title}
-                                            description={e.description}
-                                            startDate={e.startDate}
-                                        />
-                                    </>
-                                )
-                            }
-                        </Card.Content>
-                    </Card>
+                                loadData={this.loadData}
+                            />
+                        </Card.Header>
+                    </Card.Content>
+                    <Card.Content>
+                        {
+                            this.state.events.map(e =>
+                                <>
+                                    <Event
+                                        key={e._id}
+                                        title={e.title}
+                                        description={e.description}
+                                        startDate={e.startDate}
+                                    />
+                                </>
+                            )
+                        }
+                    </Card.Content>
+                </Card>
             </div>
         )
     }
