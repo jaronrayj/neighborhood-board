@@ -14,8 +14,22 @@ class ModalDiscussion extends Component {
         this.state = {
             show: false,
             title: "",
-            body: ""
+            body: "",
+            username: ""
         };
+    }
+
+    componentDidMount = () => {
+        const currentComponent = this;
+
+        Axios.get('/api/users/authenticate').then(function (response) {
+            currentComponent.setState({ username: response.data.authenticatedUser.displayName}, function (response) {
+            })
+          }).catch(function (err) {
+            console.log(err)
+      
+          })
+
     }
 
     handleInputChange = event => {
@@ -38,9 +52,9 @@ class ModalDiscussion extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { title, body } = this.state;
+        const { title, body, username } = this.state;
 
-        Axios.post('/api/discussions', { title, body })
+        Axios.post('/api/discussions', { title, body, username })
             .then((result) => {
                 console.log(result);
             })
