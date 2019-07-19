@@ -2,8 +2,10 @@ import React from "react";
 // import axios from "axios";
 import { Card, Button } from 'react-bootstrap';
 import "./Post.css";
+import PostUpdateModal from "../PostUpdateModal";
 // import { Feed } from "semantic-ui-react";
 const axios = require("axios");
+
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -39,21 +41,12 @@ export default class Post extends React.Component {
       return;
     }
 
-
-    function commentClick(event){
-      event.preventDefault();
-      console.log("Comment button clicked");
-      //pull up a modal to leave a comment
-      //it will need a body area and a submit button
-    }
-
-    function editClick(event){
-      event.preventDefault();
-      console.log("Edit button clicked")
-      //possibly pulls up a modal like the write post form
-      //2nd option, update the clicked on post
-      //1st option, delete old post and when new post submited it will be a new data entry
-    }
+    // function commentClick(event){
+    //   event.preventDefault();
+    //   console.log("Comment button clicked");
+    //   //pull up a modal to leave a comment
+    //   //it will need a body area and a submit button
+    // }
     
     return (
 
@@ -67,8 +60,12 @@ export default class Post extends React.Component {
           <Card.Text>{this.props.data.body}</Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Button data-id={this.props.data._id} onClick={commentClick} className="post-comment-button" variant="outline-info" size="sm">Comment</Button>
-          <Button data-id={this.props.data._id} onClick={editClick} className="post-edit-button" variant="outline-secondary" size="sm">Edit</Button>
+          {/* <Button data-id={this.props.data._id} onClick={commentClick} className="post-comment-button" variant="outline-info" size="sm">Comment</Button> */}
+          <PostUpdateModal
+            loadData={this.props.loadData}
+            postId={this.props.data._id}
+          />
+          {/* <Button data-id={this.props.data._id} onClick={editClick} className="post-edit-button" variant="outline-secondary" size="sm">Edit</Button> */}
           <Button id={"delete-btn-"+this.props.data._id} onClick={this.deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
         </Card.Footer>
       </Card>
