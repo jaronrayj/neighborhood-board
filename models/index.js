@@ -4,7 +4,8 @@ module.exports = {
     Event: require("./event"),
     Discussion: require("./discussion"),
     Marketplace: require("./marketplace"),
-    User: require("./user")
+    User: require("./user"),
+    Image: require("./image")
 
   };
   

@@ -2,7 +2,9 @@ import React from "react";
 // import axios from "axios";
 import { Card, Button } from 'react-bootstrap';
 import "./Post.css";
+
 import PostUpdateModal from "../PostUpdateModal";
+
 // import { Feed } from "semantic-ui-react";
 const axios = require("axios");
 
