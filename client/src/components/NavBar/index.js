@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Label, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import "./style.css"
-import LazyHero from 'react-lazy-hero';
+// import LazyHero from 'react-lazy-hero';
 
 // import logo from "../../images/logo.png"
 import profile from "../images/ProfileRog.jpg"
