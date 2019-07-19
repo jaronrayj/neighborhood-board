@@ -93,11 +93,11 @@ class LoginForm extends Component {
 
                     <Form>
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Username</label>
+                            <label style={{ color: "#404A59" }}>Username</label>
                             <input onChange={this.handleInputChange} placeholder='' name='username' />
                         </Form.Field>
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Password</label>
+                            <label style={{ color: "#404A59" }}>Password</label>
                             <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' />
                         </Form.Field>
 
@@ -108,7 +108,7 @@ class LoginForm extends Component {
                         }
 
                         <br />
-                        <p style={{ color: "white", marginTop: "30px" }}>To create a new account <Link to='/signup' style={{ color: "#F5FFFA", paddingLeft: "9px" }}>Click Here</Link></p>
+                        <p style={{ color: "#404A59", marginTop: "30px" }}>New users: <Link to='/signup' style={{ color: "#B97244", paddingLeft: "9px" }}>Click Here</Link></p>
                     </Form>
 
                 </div>

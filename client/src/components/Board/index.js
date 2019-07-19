@@ -6,7 +6,7 @@ import Discussion from "../Discussion";
 import Marketplace from "../Marketplace";
 import axios from 'axios';
 import './style.css'
-import StickyFooter from 'react-sticky-footer';
+// import StickyFooter from 'react-sticky-footer';
 export default class Board extends Component {
 
     componentDidMount = () => {
@@ -33,13 +33,13 @@ export default class Board extends Component {
         return (
             <div>
                 <Row style={{ marginTop: "80px" }}>
-                    <Col sm={3}>
+                    <Col className='pr-0' sm={3}>
                         <EventContainer />
                     </Col>
-                    <Col sm={6}>
+                    <Col className='p-0' sm={6}>
                         <Discussion />
                     </Col>
-                    <Col sm={3}>
+                    <Col className='pl-0' sm={3}>
                         <Marketplace />
                     </Col>
                 </Row>
