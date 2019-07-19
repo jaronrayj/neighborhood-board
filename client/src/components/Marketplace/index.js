@@ -50,57 +50,49 @@ class Marketplace extends Component {
     componentDidMount() {
         this.loadData();
     }
-    
+
     loadData = () => {
         const currentComponent = this;
 
-    
+
     }
-  
+
     loadData = () => {
-    const currentComponent = this;
+        const currentComponent = this;
 
-    Axios.get('/api/markets').then(function (res) {
-        currentComponent.setState({ items: res.data })
-    }).catch(function (err) {
-        console.log(err)
-    });
+        Axios.get('/api/markets').then(function (res) {
+            currentComponent.setState({ items: res.data })
+        }).catch(function (err) {
+            console.log(err)
+        });
 
-}
+    }
     render() {
         return (
-            <Card.Group>
-                <Card>
-                    <Card.Content>
-                        <Card.Header>Marketplace
+            <div>
+                <Card.Group>
+                    <Card>
+                        <Card.Content>
+                            <Card.Header>Marketplace
                         <MarketplaceModal
-                        loadData={this.loadData}
-                        />
-                        </Card.Header>
-                    </Card.Content>
-                    <Card.Content>
-                        {
-                            // this.state.savedMarketItems
-                            this.state.items.map(e =>
-                                <>
-                                    <MarketItem
-                                        userId={e.userId}
-                                        title={e.title}
-                                        description={e.description}
-                                        price={e.price}
-                                        contactPhone={e.contactPhone}
-                                        imageName={e.imageName}
-                                        imageData={e.imageData}
+                                    loadData={this.loadData}
+                                />
+                            </Card.Header>
+                        </Card.Content>
+                        <Card.Content>
+                            {
+                                // this.state.savedMarketItems
+                                this.state.items.map(e =>
+                                    <>
+                                        <MarketItem
+                                            userId={e.userId}
+                                            title={e.title}
+                                            description={e.description}
+                                            price={e.price}
+                                            contactPhone={e.contactPhone}
+                                            imageName={e.imageName}
+                                            imageData={e.imageData}
                                         // contactEmail={e.contactEmail}
-
-                                    />
-                                </>
-                            )
-                        }
-                    </Card.Content>
-                </Card>
-            </Card.Group>
-
 
                                         />
                                     </>
@@ -108,7 +100,8 @@ class Marketplace extends Component {
                             }
                         </Card.Content>
                     </Card>
-            </div>
+                </Card.Group>
+            </div >
         )
     }
 }

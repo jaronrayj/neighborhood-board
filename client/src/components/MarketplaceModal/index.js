@@ -58,103 +58,103 @@ class MarketplaceModal extends Component {
     //     }
     // }
 
-//function to upload image once it has been captured
-//includes multer and firesbase methods
-uploadImage(e, method) {
-    let imageObj = {};
+    //function to upload image once it has been captured
+    //includes multer and firesbase methods
+    uploadImage(e, method) {
+        let imageObj = {};
 
-    // if (method === "multer") {
-    //     let imageFormObj = new FormData();
+        // if (method === "multer") {
+        //     let imageFormObj = new FormData();
 
-    //     imageFormObj.append("imageName", "multer-image-" + Date.now());
-    //     imageFormObj.append("imageData", e.target.files[0]);
-    
-    // //stores a readable instance of the image being uploaded using multer
-    // this.setState({
-    //     multerImage: URL.createObjectURL(e.target.files[0])
-    // });
+        //     imageFormObj.append("imageName", "multer-image-" + Date.now());
+        //     imageFormObj.append("imageData", e.target.files[0]);
 
-    // axios.post(`${API_URL}/image/uploadmulter`, imageFormObj)
-    //     .then((data) => {
-    //         if (data.data.success) {
-    //             alert("Image has been successfully uploaded using multer");
-    //             this.setDefaultImage("multer");
-    //         }
-    //     })
-    //     .catch((err) => {
-    //         alert("Error while uploading image using multer");
-    //         this.setDefaultImage("multer");
-    //     });
-    // } else 
+        // //stores a readable instance of the image being uploaded using multer
+        // this.setState({
+        //     multerImage: URL.createObjectURL(e.target.files[0])
+        // });
+
+        // axios.post(`${API_URL}/image/uploadmulter`, imageFormObj)
+        //     .then((data) => {
+        //         if (data.data.success) {
+        //             alert("Image has been successfully uploaded using multer");
+        //             this.setDefaultImage("multer");
+        //         }
+        //     })
+        //     .catch((err) => {
+        //         alert("Error while uploading image using multer");
+        //         this.setDefaultImage("multer");
+        //     });
+        // } else 
         // if (method === "firebase") {
 
-    // // ===========FIREBASE=================
-    //     let currentImageName = "firebase-image-" + Date.now();
+        // // ===========FIREBASE=================
+        //     let currentImageName = "firebase-image-" + Date.now();
 
-    //     let uploadImage = storage.ref(`images/${currentImageName}`).put(e.target.files[0]);
+        //     let uploadImage = storage.ref(`images/${currentImageName}`).put(e.target.files[0]);
 
-    //     uploadImage.on('state_changed',
-    //     (snapshot) => { },
-    //     (error) => {
-    //         alert(error);
-    //     },
-    //     () => {
-    //         storage.ref('images').child(currentImageName).getDownloadURL().then(url => {
-                
-    //             this.setState({
-    //                 firebaseImage: url
-    //             });
+        //     uploadImage.on('state_changed',
+        //     (snapshot) => { },
+        //     (error) => {
+        //         alert(error);
+        //     },
+        //     () => {
+        //         storage.ref('images').child(currentImageName).getDownloadURL().then(url => {
 
-    //             //store image object in the database
-    //             imageObj = {
-    //                 imageName: currentImageName,
-    //                 imageData: url
-    //             };
+        //             this.setState({
+        //                 firebaseImage: url
+        //             });
 
-    //             axios.post(`${API_URL}/image/uploadbase`, imageObj)
-    //                 .then((data) => {
-    //                     if (data.data.success) {
-    //                         alert("Image has been successfully uploaded using firebase storage");
-    //                         this.setDefaultImage("firebase");
-    //                     }
-    //                 })
-    //                 .catch((err) => {
-    //                     alert("Error while uploading image using firebase storage")
-    //                     this.setDefaultImage("firebase");
-    //                 });
-    //         })
-    //     })
-    // }
+        //             //store image object in the database
+        //             imageObj = {
+        //                 imageName: currentImageName,
+        //                 imageData: url
+        //             };
 
-
-
-    //==========this works================
-    let file= e.target.files[0];
-
-    var storageRef = storage.ref('photos/' + file.name);
-
-    var task = storageRef.put(file);
-
-    // file.on('state_changed',
-    //     (snapshot) => { },
-    //     (error) => {
-    //         alert(error);
-    //     },
-    //     () => {
-    //         storage.ref('photos/').child(file.name).getDownloadURL().then(url => {
-    //             this.setState({
-    //                 firebaseImage: url
-
-    //             });
-    //         })
-    //     }
-    //     )
-
-    
+        //             axios.post(`${API_URL}/image/uploadbase`, imageObj)
+        //                 .then((data) => {
+        //                     if (data.data.success) {
+        //                         alert("Image has been successfully uploaded using firebase storage");
+        //                         this.setDefaultImage("firebase");
+        //                     }
+        //                 })
+        //                 .catch((err) => {
+        //                     alert("Error while uploading image using firebase storage")
+        //                     this.setDefaultImage("firebase");
+        //                 });
+        //         })
+        //     })
+        // }
 
 
-    
-}
+
+        //==========this works================
+        let file = e.target.files[0];
+
+        var storageRef = storage.ref('photos/' + file.name);
+
+        var task = storageRef.put(file);
+
+        // file.on('state_changed',
+        //     (snapshot) => { },
+        //     (error) => {
+        //         alert(error);
+        //     },
+        //     () => {
+        //         storage.ref('photos/').child(file.name).getDownloadURL().then(url => {
+        //             this.setState({
+        //                 firebaseImage: url
+
+        //             });
+        //         })
+        //     }
+        //     )
+
+
+
+
+
+    }
 
 
 
@@ -182,7 +182,7 @@ uploadImage(e, method) {
         event.preventDefault();
         console.log("THis works");
 
-        
+
         const { title, description, price, contactPhone } = this.state;
 
         axios.post('/api/markets', { title, description, price, contactPhone })
@@ -228,13 +228,6 @@ uploadImage(e, method) {
                                 {/* this form.control might not work */}
                                 <Form.Control as="input" value={this.state.price} onChange={this.handleInputChange} name="price" />
                             </Form.Group>
-                            {/* <Form.Group id="marketItemEmail">
-                                <Form.Label>Contact Email</Form.Label>
-                                <Form.Control as="textarea" value={this.state.contactEmail} onChange={this.handleInputChange} name="contactEmail" />
-                            </Form.Group> */}
-
-                                <Form.Control as="input" value={this.state.contactEmail} onChange={this.handleInputChange} name="contactEmail" />
-                            </Form.Group>
                             <Form.Group id="marketItemPhone">
                                 <Form.Label>Contact Phone #</Form.Label>
                                 <Form.Control as="input" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
@@ -244,9 +237,9 @@ uploadImage(e, method) {
                                 <Form.Label>Insert image of product</Form.Label>
                                 {/* <Form.Control as="file" className="process_upload-btn" onChange={(e) => this.uploadImage(e, "multer")} /> */}
                                 {/* <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />  */}
-                                
+
                                 {/* this might not work as well "file" */}
-                            {/* insert code for image multer image classname etc
+                                {/* insert code for image multer image classname etc
                             <div className="process">
                                 <h4 className="process_heading">Process: Using Multer</h4>
                                 <p className="process_details">Upload image to a node server, connected to a MongoDB database, with teh help of multer</p>
@@ -255,17 +248,17 @@ uploadImage(e, method) {
                                 <img src={this.state.multerImage} alt="upload-image" className="process_image" />
                             </div> */}
 
-                            {/*insert code for firebase storage*/}
+                                {/*insert code for firebase storage*/}
 
-                            // <div className="process">
-                            //     <h4 className="process_heading">Process: Using Firebase Storage</h4>
-                            //     <p className="process_details">Upload image to Firebase storage and retrieve a reference to the image</p>
+                                <div className="process">
+                                    <h4 className="process_heading">Process: Using Firebase Storage</h4>
+                                    <p className="process_details">Upload image to Firebase storage and retrieve a reference to the image</p>
 
-                                <input type="file" className="process_upload-btn" onChange={(e) => this.uploadImage(e, "multer")} />
-                                <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />
-                            </div>
+                                    <input type="file" className="process_upload-btn" onChange={(e) => this.uploadImage(e, "multer")} />
+                                    <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />
+                                </div>
 
-                            {/* insert code for Base64
+                                {/* insert code for Base64
                             <div className="process">
                                 <h4 className="process_heading">Process: Using Base64</h4>
                                 <p className="process_details">Upload image as Base64 directly to MongoDB database</p>
@@ -276,8 +269,6 @@ uploadImage(e, method) {
                                 <img src={this.state.baseImage} alt="upload-image" className="process_image" />>
                             </div> */}
 
-
-                            />
                         </Form.Group>
                         </Form>
                     </Modal.Body>
