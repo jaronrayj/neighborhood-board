@@ -84,7 +84,7 @@ class EventModal extends Component {
                         <Form>
                             <Form.Group id="eventTitle">
                                 <Form.Label>Event Name</Form.Label>
-                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="eventDesc">
                                 <Form.Label>Description</Form.Label>
