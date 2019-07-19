@@ -10,13 +10,13 @@ export default class Feed extends Component {
         this.state = {
             posts: []
         };
-      }
+    }
 
 
     componentDidMount() {
         this.loadData()
     }
-    
+
     loadData = () => {
         axios.get("/api/discussions/")
             .then(res => {
@@ -30,17 +30,17 @@ export default class Feed extends Component {
 
     render() {
         return (
-            
+
             <div className="discussion-body">
-                <ModalDiscussion 
-                  loadData={this.loadData}
+                <ModalDiscussion className='ml-5'
+                    loadData={this.loadData}
                 />
                 <div className="feed-body">
                     {this.state.posts.map(post => {
-                    return <Post 
-                        loadData={this.loadData}
-                        data={post}
-                    />
+                        return <Post
+                            loadData={this.loadData}
+                            data={post}
+                        />
                     })}
                 </div>
             </div>

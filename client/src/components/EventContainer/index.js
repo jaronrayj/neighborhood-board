@@ -68,8 +68,8 @@ class EventContainer extends Component {
     }
 
     render() {
-        console.log("EVENTS")
-        console.log(this.state.events)
+        console.log("TCL: EventContainer -> render -> , EVENTS");
+        console.log("TCL: EventContainer -> render -> this.state.events", this.state.events);
         return (
             <div className="event-container">
                 <Card>
