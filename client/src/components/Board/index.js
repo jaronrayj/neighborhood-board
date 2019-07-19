@@ -5,7 +5,7 @@ import EventContainer from '../EventContainer';
 import Discussion from "../Discussion";
 import Marketplace from "../Marketplace";
 import axios from 'axios';
-
+import StickyFooter from 'react-sticky-footer';
 export default class Board extends Component {
 
     componentDidMount=()=>{
@@ -28,7 +28,9 @@ export default class Board extends Component {
     }
 
     render() {
+    
         return (
+            <div>
             <Row style={{ marginTop: "80px" }}>
                 <Col sm={3}>
                     <EventContainer />
@@ -40,6 +42,23 @@ export default class Board extends Component {
                     <Marketplace />
                 </Col>
             </Row>
+
+<StickyFooter
+    bottomThreshold={50}
+    normalStyles={{
+    backgroundColor: "#999999",
+    padding: "2rem"
+    }}
+    stickyStyles={{
+    backgroundColor: "rgba(255,255,255,.8)",
+    padding: "2rem"
+    }}
+>
+    
+</StickyFooter>
+
+</div>
         )
     }
 }
+
