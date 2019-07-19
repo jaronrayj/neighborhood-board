@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+// const PORT = 3001; //change this back to process.env.PORT
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -11,6 +12,8 @@ var db = require("./models");
 // Define middleware 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('./uploads', express.static('uploads'));
+
 // Serve up static assets (on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

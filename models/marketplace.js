@@ -7,7 +7,10 @@ const marketSchema = new Schema({
   description: String,
   price: { type: Number },
   // price: Schema.Types.Decimala128,
-  img: { data: Buffer, contentType: String },
+  // img: { data: Buffer, contentType: String },
+  imageName: { type: String, default: "none", required: true },
+  imageData: { type: String, required: true },
+  
   contactPhone: { type: String },
   contactEmail: { type: String }
 });
@@ -15,3 +18,4 @@ const marketSchema = new Schema({
 const marketplace = mongoose.model("Market", marketSchema);
 
 module.exports = marketplace;
+
