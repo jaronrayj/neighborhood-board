@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import React, { Component } from 'react';
 import Axios from 'axios';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class EventModal extends Component {
     constructor(props, context) {
@@ -10,13 +12,13 @@ class EventModal extends Component {
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
 
         this.state = {
             show: false,
             title: "",
             description: "",
-            date: "",
-            startTime: ""
+            startDate: ""
         };
     }
 
@@ -29,8 +31,15 @@ class EventModal extends Component {
         });
     };
 
+    handleDateChange(date) {
+        this.setState({
+            startDate: date
+        });
+    }
+
     handleClose() {
         this.setState({ show: false });
+        this.props.loadData();
     }
 
     handleShow() {
@@ -39,9 +48,10 @@ class EventModal extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { title, description, date, startTime } = this.state;
+        const { title, description, startDate } = this.state;
+        console.log(title, description, startDate);
 
-        Axios.post('/api/events', { title, description, date, startTime })
+        Axios.post('/api/events', { title, description, startDate })
             .then((result) => {
                 console.log(result);
             })
@@ -49,8 +59,8 @@ class EventModal extends Component {
         this.setState({
             title: "",
             description: "",
-            date: "",
-            startTime: ""
+            // date: "",
+            // startDate: 
         })
 
         this.handleClose();
@@ -81,13 +91,17 @@ class EventModal extends Component {
                                 <Form.Control as="textarea" value={this.state.description} onChange={this.handleInputChange} name="description" />
                             </Form.Group>
                             <Form.Group id="eventDate">
-                                <Form.Label>Date of Event</Form.Label>
-                                <Form.Control as="input" value={this.state.date} onChange={this.handleInputChange} name="date" />
+                                <Form.Label>Date of Event: </Form.Label>
+                                <br />
+                                <DatePicker
+                                    selected={this.state.startDate}
+                                    onChange={this.handleDateChange}
+                                />
                             </Form.Group>
-                            <Form.Group id="eventTime">
+                            {/* <Form.Group id="eventTime">
                                 <Form.Label>Time of Event</Form.Label>
                                 <Form.Control as="input" value={this.state.startTime} onChange={this.handleInputChange} name="startTime" />
-                            </Form.Group>
+                            </Form.Group> */}
                         </Form>
                     </Modal.Body>
 

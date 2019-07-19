@@ -3,7 +3,7 @@ import React from "react";
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import "./Post.css";
-import { Feed } from "semantic-ui-react";
+// import { Feed } from "semantic-ui-react";
 const axios = require("axios");
 
 export default class Post extends React.Component {
@@ -25,7 +25,6 @@ export default class Post extends React.Component {
     axios.delete("/api/discussions/" + postId)
       .then(req => {
         console.log("Deleted post at id: " + postId + "!");
-        //TODO: reload web page
         this.props.loadData();
       })
       .catch(err => {
@@ -62,7 +61,7 @@ export default class Post extends React.Component {
       <Card>
         <Card.Header>
           <span>{this.props.data.username}</span>
-          <span className="time-span">{this.props.data.date}</span>
+          {/* <span className="time-span">{this.props.data.date}</span> */}
         </Card.Header>
         <Card.Body>
           <Card.Title>{this.props.data.title}</Card.Title>

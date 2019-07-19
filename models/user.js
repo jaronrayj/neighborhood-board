@@ -6,34 +6,29 @@ var bcrypt = require('bcrypt-nodejs');
 var UserSchema = new Schema({
     username: {
         type: String,
-        // required: true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        // required: true
+        required: true
     },
     firstName: {
         type: String,
-        // require: true,
+        require: true,
     },
     lastName: {
         type: String,
-        // require: true,
+        require: true,
     },
     displayName: {
         type: String,
-        // require: true,
+        require: true,
     },
     email: {
         type: String,
         // required: true,
     },
-    // role: {
-    //     type: String,
-    //     default: 'customer',
-    //     enum:["admin", "customer"]
-    //   },
     dateCreated: {
         type: Date,
         default: Date.now

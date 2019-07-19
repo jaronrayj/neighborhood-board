@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Label, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import "./style.css"
-import logo from "../../images/logo.png"
+// import logo from "../../images/logo.png"
 
 export default class NavBar extends Component {
 
@@ -38,7 +38,7 @@ export default class NavBar extends Component {
     return (
       <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100" }}>
         <Menu.Item href='/board'>
-          <img alt='label' src="https://emojis.wiki/emoji-pics/facebook/house-facebook.png" />
+          <Image size="mini" alt='label' src="https://emojis.wiki/emoji-pics/facebook/house-facebook.png" />
               <h2 >Neighborhood Board</h2>
         </Menu.Item>
 

@@ -5,7 +5,7 @@ module.exports = {
     findAll: function (req, res) {
         db.Event
             .find(req.query)
-            .sort({ date: -1 })
+            .sort({$natural:-1})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -17,7 +17,11 @@ module.exports = {
     },
     create: function (req, res) {
 
+        date = new Date(req.body.startDate)
+        console.log("request body for event")
+        console.log(date)
         console.log(req.body);
+
         db.Event
             .create(req.body)
             .then(dbEvent => res.json(dbEvent))

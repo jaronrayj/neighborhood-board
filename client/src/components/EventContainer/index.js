@@ -4,6 +4,7 @@ import Event from '../Event'
 import { Card } from 'semantic-ui-react'
 import EventModal from '../EventModal'
 import Axios from 'axios';
+import "./style.css";
 
 
 // const events= [
@@ -52,43 +53,49 @@ class EventContainer extends Component {
 
 
     componentDidMount = () => {
-
+        this.loadData();
+    }
+    
+    loadData = () => {
         const currentComponent = this;
 
         Axios.get("/api/events").then(function (res) {
             currentComponent.setState({ events: res.data })
         }).catch(function (err) {
             console.log(err);
-        })
+        });
     }
-
 
     render() {
 
         return (
-            <Card.Group>
-                <Card>
-                    <Card.Content>
-                        <Card.Header>Upcoming Events
-                    <EventModal />
-                        </Card.Header>
-                    </Card.Content>
-                    <Card.Content>
-                        {
-                            this.state.events.map(e =>
-                                <>
-                                    <Event
-                                        key={e._id}
-                                        title={e.title}
-                                        description={e.description}
-                                        date={e.date}
-                                    />
-                                </>
-                            )
-                        }
-                    </Card.Content>
-                </Card>
-            </Card.Group>
+            <div className="event-container">
+                <Card.Group>
+                    <Card>
+                        <Card.Content>
+                            <Card.Header>Upcoming Events
+                        <EventModal
+                            loadData={this.loadData}
+                        />
+                            </Card.Header>
+                        </Card.Content>
+                        <Card.Content>
+                            {
+                                this.state.events.map(e =>
+                                    <>
+                                        <Event
+                                            key={e._id}
+                                            title={e.title}
+                                            description={e.description}
+                                            startDate={e.startDate}
+                                        />
+                                    </>
+                                )
+                            }
+                        </Card.Content>
+                    </Card>
+                </Card.Group>
+            </div>
         )
     }
 }
