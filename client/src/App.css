@@ -31,3 +31,11 @@
 .card {
   margin:0px;
 }
+
+.background {
+  /* background-repeat: repeat-x; */
+  bottom: -110px;
+  position: fixed;
+  width: 100%;
+  z-index: -10;
+}
