@@ -23,12 +23,12 @@ class ModalDiscussion extends Component {
         const currentComponent = this;
 
         Axios.get('/api/users/authenticate').then(function (response) {
-            currentComponent.setState({ username: response.data.authenticatedUser.displayName}, function (response) {
+            currentComponent.setState({ username: response.data.authenticatedUser.displayName }, function (response) {
             })
-          }).catch(function (err) {
+        }).catch(function (err) {
             console.log(err)
-      
-          })
+
+        })
 
     }
 
@@ -70,9 +70,9 @@ class ModalDiscussion extends Component {
     render() {
         return (
             <>
-                <Button variant="secondary" onClick={this.handleShow}>
+                <Button className='ml-3' variant="secondary" onClick={this.handleShow}>
                     Post
-            </Button>
+                </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
 
