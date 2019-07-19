@@ -22,3 +22,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.ui.card {
+  width: 98%;
+  margin: 2px;
+}
+
+.card {
+  margin:0px;
+}

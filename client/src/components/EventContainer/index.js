@@ -70,7 +70,6 @@ class EventContainer extends Component {
 
         return (
             <div className="event-container">
-                <Card.Group>
                     <Card>
                         <Card.Content>
                             <Card.Header>Upcoming Events
@@ -94,7 +93,6 @@ class EventContainer extends Component {
                             }
                         </Card.Content>
                     </Card>
-                </Card.Group>
             </div>
         )
     }

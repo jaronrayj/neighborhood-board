@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Label, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import "./style.css"
-// import logo from "../../images/logo.png"
+import profile from "../images/ProfileRog.jpg"
 
 export default class NavBar extends Component {
 
@@ -54,8 +54,8 @@ export default class NavBar extends Component {
         {this.state.authenticated ?
           <Menu.Item position='right'>
             <Label as='a' style={{ backgroundColor: "lightgrey", color: "#800000" }} image href='/profile'>
-              <img alt='label user' src='https://react.semantic-ui.com/images/avatar/small/christian.jpg' />
-              {this.state.authUser.firstName} {this.state.authUser.lastName}
+              <img alt='label user' src={profile} />
+              {this.state.authUser.displayName}
               {/* <Label.Detail>{this.state.authUser.role}</Label.Detail> */}
             </Label>
           </Menu.Item>
