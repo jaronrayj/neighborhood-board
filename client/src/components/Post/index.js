@@ -1,7 +1,6 @@
 import React from "react";
 // import axios from "axios";
-import { Card } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import "./Post.css";
 // import { Feed } from "semantic-ui-react";
 const axios = require("axios");

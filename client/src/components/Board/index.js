@@ -19,7 +19,7 @@ export default class Board extends Component {
 
         axios.get('/api/users/authenticate').then(function(response){
 
-            currentComponent.setState({authenticatedUser: response.data.authenticatedUser})
+        currentComponent.setState({authenticatedUser: response.data.authenticatedUser})
 
         }).catch(function(error){
             console.log(error)
