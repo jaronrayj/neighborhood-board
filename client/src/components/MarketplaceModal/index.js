@@ -76,7 +76,7 @@ class MarketplaceModal extends Component {
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group>
                                 <Form.Label>Item for sale name</Form.Label>
-                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="marketItemDesc">
                                 <Form.Label>Description</Form.Label>
@@ -94,11 +94,11 @@ class MarketplaceModal extends Component {
                             </Form.Group>
                             <Form.Group id="marketItemEmail">
                                 <Form.Label>Contact Email</Form.Label>
-                                <Form.Control as="textarea" value={this.state.contactEmail} onChange={this.handleInputChange} name="contactEmail" />
+                                <Form.Control as="input" value={this.state.contactEmail} onChange={this.handleInputChange} name="contactEmail" />
                             </Form.Group>
                             <Form.Group id="marketItemPhone">
                                 <Form.Label>Contact Phone #</Form.Label>
-                                <Form.Control as="textarea" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
+                                <Form.Control as="input" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
                             </Form.Group>
                         </Form>
                     </Modal.Body>
