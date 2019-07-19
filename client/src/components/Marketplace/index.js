@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 // import API from "../../utils/Api";
-// import useEvent from '../../hooks/useEvent';
 import MarketItem from '../MarketItem';
 import { Card } from 'semantic-ui-react';
 import MarketplaceModal from '../MarketplaceModal';
 import Axios from "axios";
+import "./style.css";
 
 
 
@@ -48,8 +48,11 @@ class Marketplace extends Component {
 
     //when this component mounts, grab all market items that were saved to the database 
     componentDidMount() {
-
         this.loadData();
+    }
+    
+    loadData = () => {
+        const currentComponent = this;
 
     
     }
@@ -98,6 +101,14 @@ class Marketplace extends Component {
                 </Card>
             </Card.Group>
 
+
+                                        />
+                                    </>
+                                )
+                            }
+                        </Card.Content>
+                    </Card>
+            </div>
         )
     }
 }

@@ -2,9 +2,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import React, { Component } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
+// import Post from "../Post";
 
-class ModalDiscussion extends Component {
+class PostUpdateModal extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -15,21 +16,8 @@ class ModalDiscussion extends Component {
             show: false,
             title: "",
             body: "",
-            username: ""
+            posts: []
         };
-    }
-
-    componentDidMount = () => {
-        const currentComponent = this;
-
-        Axios.get('/api/users/authenticate').then(function (response) {
-            currentComponent.setState({ username: response.data.authenticatedUser.displayName}, function (response) {
-            })
-          }).catch(function (err) {
-            console.log(err)
-      
-          })
-
     }
 
     handleInputChange = event => {
@@ -41,54 +29,59 @@ class ModalDiscussion extends Component {
         });
     };
 
-    handleClose() {
+    handleClose = () => {
         this.setState({ show: false });
         this.props.loadData();
     }
 
-    handleShow() {
+
+    handleShow = () => {
         this.setState({ show: true });
     }
 
-    handleSubmit = event => {
+    handleEdit = event => {
+
         event.preventDefault();
-        const { title, body, username } = this.state;
+        const { title, body } = this.state;
 
-        Axios.post('/api/discussions', { title, body, username })
-            .then((result) => {
-                console.log(result);
+        axios.put('/api/discussions/' + this.props.postId, { title, body })
+            .then(req => {
+                console.log("Updated post at id: " + this.props.postId + "!");
             })
-
+            .catch(err => {
+                console.log("Error occured while tryin to Edit post at id: " + this.props.postId);
+            });
+                
         this.setState({
             title: "",
             body: ""
-        })
+        });
 
         this.handleClose();
-    };
+    }
 
     render() {
         return (
             <>
-                <Button variant="secondary" onClick={this.handleShow}>
-                    Post
-            </Button>
+                <Button className="post-edit-button" variant="outline-secondary" size="sm" onClick={this.handleShow}>
+                    Edit Post
+                </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
 
                     {/* <Modal.Dialog> */}
                     <Modal.Header closeButton>
-                        <Modal.Title>Make a Post</Modal.Title>
+                        <Modal.Title>Update Post</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
                         <Form>
                             <Form.Group id="discussionTitle">
                                 <Form.Label>Post Title</Form.Label>
-                                <Form.Control as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="discussionBody">
-                                <Form.Label>Posts</Form.Label>
+                                <Form.Label>Post Body</Form.Label>
                                 <Form.Control as="textarea" rows="10" value={this.state.body} onChange={this.handleInputChange} name="body" />
                             </Form.Group>
                         </Form>
@@ -96,7 +89,7 @@ class ModalDiscussion extends Component {
 
                     <Modal.Footer>
                         <Button onClick={this.handleClose} variant="danger">Close</Button>
-                        <Button variant="outline-primary" onClick={this.handleSubmit}>Save changes</Button>
+                        <Button variant="outline-primary" onClick={this.handleEdit}>Save changes</Button>
                     </Modal.Footer>
                     {/* </Modal.Dialog> */}
                 </Modal>
@@ -106,4 +99,4 @@ class ModalDiscussion extends Component {
 }
 
 
-export default ModalDiscussion;
+export default PostUpdateModal;

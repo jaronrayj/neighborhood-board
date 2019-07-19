@@ -5,7 +5,7 @@ const eventSchema = new Schema({
   title: { type: String },
   userId: { type: String },
   description: String,
-  date: { type: Date, default: Date.now },
+  startDate: { type: Date },
   startTime: { type: String },
   endTime: { type: String },
 });

@@ -6,8 +6,7 @@ const Schema = mongoose.Schema;
 const discussionSchema = new Schema({
     
     username: { type: String },
-    // username: { type: mongoose.Schema.ObjectId, ref: 'user' },
-    date: Date,
+    date: { type: Date, default: Date.now },
     title: String,
     body: String,
   

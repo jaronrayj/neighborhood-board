@@ -3,9 +3,11 @@ const db = require("../models");
 // defining methods for the eventsController
 module.exports = {
     findAll: function (req, res) {
+        var cutoff = new Date();
+        cutoff.setDate(cutoff.getDate() - 1);
         db.Event
-            .find(req.query)
-            .sort({ date: -1 })
+            .find({ startDate: { $gte: cutoff } })
+            .sort({ startDate: 1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -17,7 +19,11 @@ module.exports = {
     },
     create: function (req, res) {
 
+        date = new Date(req.body.startDate)
+        console.log("request body for event")
+        console.log(date)
         console.log(req.body);
+
         db.Event
             .create(req.body)
             .then(dbEvent => res.json(dbEvent))

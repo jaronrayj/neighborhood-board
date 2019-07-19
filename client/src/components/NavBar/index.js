@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Menu, Label, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import "./style.css"
-import logo from "../../images/logo.png"
+import LazyHero from 'react-lazy-hero';
+
+// import logo from "../../images/logo.png"
+import profile from "../images/ProfileRog.jpg"
 
 export default class NavBar extends Component {
 
@@ -36,43 +39,55 @@ export default class NavBar extends Component {
   render() {
 
     return (
-      <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100" }}>
-        <Menu.Item href='/board'>
-          <Image alt='label' size="tiny" src={logo} />
-          <h2 >Neighborhood Board</h2>
-        </Menu.Item>
+      <div>
+        <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100" }}>
 
-        {this.state.authenticated ? null :
-          <Menu.Item position='right'>
-            <Button icon labelPosition='left' href='/login' style={{ backgroundColor: "#DF3525", color: "white" }}>
-              <Icon name='arrow right' />
-              Login
+
+          <Menu.Item href='/board'>
+            <Image size="mini" alt='label' src="https://emojis.wiki/emoji-pics/facebook/house-facebook.png" />
+            <h2 >Neighborhood Board</h2>
+          </Menu.Item>
+
+          {this.state.authenticated ? null :
+            <Menu.Item position='right'>
+              <Button icon labelPosition='left' href='/login' style={{ backgroundColor: "#800000", color: "white" }}>
+                <Icon name='arrow right' />
+                Login
                 </Button>
-          </Menu.Item>
-        }
+            </Menu.Item>
+          }
 
-        {this.state.authenticated ?
-          <Menu.Item position='right'>
-            <Label as='a' style={{ backgroundColor: "lightgrey", color: "#EF1B36" }} image href='/profile'>
-              <img alt='label user' src='https://react.semantic-ui.com/images/avatar/small/christian.jpg' />
-              {this.state.authUser.firstName} {this.state.authUser.lastName}
-              {/* <Label.Detail>{this.state.authUser.role}</Label.Detail> */}
-            </Label>
-          </Menu.Item>
+          {this.state.authenticated ?
+            <Menu.Item position='right'>
+              <Label as='a' style={{ backgroundColor: "lightgrey", color: "#800000" }} image href='/profile'>
+                <img alt='label user' src={profile} />
+                {this.state.authUser.displayName}
+                {/* <Label.Detail>{this.state.authUser.role}</Label.Detail> */}
+              </Label>
+            </Menu.Item>
 
-          : null}
+            : null}
 
-        {this.state.authenticated ?
-          <Menu.Item name='Logout' >
-            <Button icon labelPosition='left' onClick={this.logout} style={{ backgroundColor: "#EF1B36", color: "white" }}>
-              <Icon name='arrow left' />
-              Logout
+          {this.state.authenticated ?
+            <Menu.Item name='Logout' >
+              <Button icon labelPosition='left' onClick={this.logout} style={{ backgroundColor: "#800000", color: "white" }}>
+                <Icon name='arrow left' />
+                Logout
                 </Button>
-          </Menu.Item>
+            </Menu.Item>
 
-          : null}
+            : null}
 
-      </Menu>
+        </Menu>
+
+        {/* <LazyHero imageSrc="https://images.unsplash.com/photo-1510526856890-8b8ec8c13bb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80">
+
+        </LazyHero> */}
+
+      </div>
     )
   }
 }
+
+
+
