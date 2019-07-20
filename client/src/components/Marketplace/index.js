@@ -6,38 +6,6 @@ import MarketplaceModal from '../MarketplaceModal';
 import Axios from "axios";
 import "./style.css";
 
-
-
-// function Marketplace() {
-// const events = useEvent();
-
-// const items = [{
-//     userId: "userId",
-//     title: "title",
-//     description: `Trust fund organic quinoa farm-to-table vaporware, meh 
-//         brooklyn four dollar toast cold-pressed tofu. Hashtag lomo 
-//         thundercats coloring book, pok pok pitchfork irony chillwave 
-//         schlitz craft beer roof party +1 venmo chicharrones glossier. 
-//         Kale chips sartorial whatever forage roof party squid food`,
-//     price: "4.25",
-//     contactPhone: "(801)555-5555",
-//     contactEmail: "email@email.com",
-//     img: "https://via.placeholder.com/50x50"
-// },
-// {
-//     userId: "userId",
-//     title: "title",
-//     description: `Trust fund organic quinoa farm-to-table vaporware, meh 
-//         brooklyn four dollar toast cold-pressed tofu. Hashtag lomo 
-//         thundercats coloring book, pok pok pitchfork irony chillwave 
-//         schlitz craft beer roof party +1 venmo chicharrones glossier. 
-//         Kale chips sartorial whatever forage roof party squid food`,
-//     price: "4.25",
-//     contactPhone: "(801)555-5555",
-//     contactEmail: "email@email.com",
-//     img: "https://via.placeholder.com/50x50"
-// }];
-
 class Marketplace extends Component {
 
     state = {
@@ -91,6 +59,8 @@ class Marketplace extends Component {
                                     contactPhone={e.contactPhone}
                                     imageName={e.imageName}
                                     imageData={e.imageData}
+
+
                                 // contactEmail={e.contactEmail}
 
                                 />

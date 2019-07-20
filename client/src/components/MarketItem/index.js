@@ -1,9 +1,24 @@
 import './style.css';
 import React from 'react';
 import { Feed } from 'semantic-ui-react';
+import { storage } from '../../firebase-config';
 
+
+function getImg(imgUrl) {
+
+    let storageRef = storage.ref(imgUrl);
+    storageRef.child(imgUrl).getDownloadURL().then(function (url) {
+
+        console.log(url)
+        return url
+    }).catch(function (error) {
+        // Handle any errors
+        if (error) throw (error);
+    })
+}
 
 function Event(props) {
+
 
 
     return (
@@ -18,7 +33,9 @@ function Event(props) {
                     <p>${props.price}</p>
                     <p>{props.contactPhone}</p>
                     <p>{props.contactEmail}</p>
-                    <img src="https://firebasestorage.googleapis.com/v0/b/neighborhood-board.appspot.com/o/photos%2Fpuppies.jpeg?alt=media&token=bd0ce755-093c-4761-9b49-c425b1d4464f" style={{ width: "300px" }} alt="" />
+
+                    <img src={getImg(props.imgUrl)} style={{ width: "300px" }} alt="" />
+
 
                 </Feed.Content>
             </Feed.Event>
