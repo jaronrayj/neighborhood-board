@@ -13,13 +13,14 @@ export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDeleted: false
+      isDeleted: false,
+      title: "",
+      body: ""
     };
   }
 
   deleteClick = (event) => {
     let source = event.target || event.srcElement;
-    console.log(source);
     event.preventDefault();
     console.log("Delete button clicked");
 
@@ -43,13 +44,6 @@ export default class Post extends React.Component {
       return;
     }
 
-    // function commentClick(event){
-    //   event.preventDefault();
-    //   console.log("Comment button clicked");
-    //   //pull up a modal to leave a comment
-    //   //it will need a body area and a submit button
-    // }
-
     return (
 
       <Card className='m-3'>
@@ -66,6 +60,8 @@ export default class Post extends React.Component {
           <PostUpdateModal
             loadData={this.props.loadData}
             postId={this.props.data._id}
+            body={this.props.data.body}
+            title={this.props.data.title}
           />
           {/* <Button data-id={this.props.data._id} onClick={editClick} className="post-edit-button" variant="outline-secondary" size="sm">Edit</Button> */}
           <Button id={"delete-btn-" + this.props.data._id} onClick={this.deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
