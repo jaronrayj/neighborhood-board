@@ -3,6 +3,8 @@ import { Button, Form, Message, Loader, Container } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Header from '../Header'
+import Col from 'react-bootstrap/Col';
 
 
 
@@ -93,65 +95,80 @@ class LoginForm extends Component {
     }
 
 
+
+
     render() {
 
         return (
-            <Container className='signup-page-container' style={{ marginTop: "80px" }}>
+            <>
 
-                <div className='signup-form-container'>
+                <Container className='signup-page-container' style={{ marginTop: "80px" }}>
+                    <Col>
 
-                    <h1 style={{ color: "#404A59", fontSize: "2rem", textAlign: "center" }}>New Account Creation</h1>
+                        <div className='signup-form-container'>
 
-                    {this.state.error ? this.errorMessage() : null}
+                            <h1 style={{ color: "#404A59", fontSize: "2rem", textAlign: "center" }}>New Account Creation</h1>
 
-                    <Form style={{ marginLeft: "auto", marginRight: "auto", content: "center" }}>
+                            {this.state.error ? this.errorMessage() : null}
+                            <br />
 
-                        <Form.Field>
-                            <label style={{ color: "#404A59" }}>First Name</label>
-                            <input onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
-                        </Form.Field>
+                            <Header style={{ float: "left" }} />
 
-                        <Form.Field>
-                            <label style={{ color: "#404A59" }}>Last Name</label>
-                            <input onChange={this.handleInputChange} placeholder='Doe' name='lastName' style={{ width: "559px" }} />
-                        </Form.Field>
 
-                        <Form.Field>
-                            <label style={{ color: "#404A59" }}>Email</label>
-                            <input onChange={this.handleInputChange} placeholder='email@noreply.com' name='email' style={{ width: "559px" }} />
-                        </Form.Field>
 
-                        <Form.Field>
-                            <label style={{ color: "#404A59" }}>Username</label>
-                            <input onChange={this.handleInputChange} placeholder='my_username' name='username' style={{ width: "559px" }} />
-                        </Form.Field>
+                            <Form style={{ marginLeft: "auto", marginRight: "auto", content: "center", float: "right" }}>
 
-                        <Form.Field>
-                            <label style={{ color: "#404A59" }}>Password</label>
-                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' style={{ width: "559px" }} />
-                        </Form.Field>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>First Name</label>
+                                    <input onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
+                                </Form.Field>
 
-                        <Form.Field>
-                            <label style={{ color: "#404A59" }}>Confirm Password</label>
-                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='confirmPassword' style={{ width: "559px" }} />
-                        </Form.Field>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Last Name</label>
+                                    <input onChange={this.handleInputChange} placeholder='Doe' name='lastName' style={{ width: "559px" }} />
+                                </Form.Field>
 
-                        {this.state.submitting ?
-                            <Button disabled={true} onClick={this.handleSubmit} type='submit' style={{ backgroundColor: "#404A59", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' inverted active />Creating Account</Button>
-                            :
-                            <Button onClick={this.handleSubmit} disabled={this.state.formErrors} type='submit' style={{ backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Create Account</Button>
-                        }
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Email</label>
+                                    <input onChange={this.handleInputChange} placeholder='email@noreply.com' name='email' style={{ width: "559px" }} />
+                                </Form.Field>
 
-                        <br />
-                        <p className='text-center' style={{
-                            backgroundColor: "#404A59",
-                            color: "white", marginTop: "30px",
-                            width: '550px'
-                        }}>Already have an account? <Link to='/login' style={{ color: "#e7f87d", paddingLeft: "9px" }}> Login Here</Link></p>
-                    </Form>
-                </div>
-            </Container>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Username</label>
+                                    <input onChange={this.handleInputChange} placeholder='my_username' name='username' style={{ width: "559px" }} />
+                                </Form.Field>
 
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Password</label>
+                                    <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' style={{ width: "559px" }} />
+                                </Form.Field>
+
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Confirm Password</label>
+                                    <input onChange={this.handleInputChange} placeholder='*********' type='password' name='confirmPassword' style={{ width: "559px" }} />
+                                </Form.Field>
+
+                                {this.state.submitting ?
+                                    <Button disabled={true} onClick={this.handleSubmit} type='submit' style={{ backgroundColor: "#404A59", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' inverted active />Creating Account</Button>
+                                    :
+                                    <Button onClick={this.handleSubmit} disabled={this.state.formErrors} type='submit' style={{ backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Create Account</Button>
+                                }
+
+                                <br />
+                                <p className='text-center' style={{
+                                    backgroundColor: "#404A59",
+                                    color: "white", marginTop: "30px",
+                                    width: '550px'
+                                }}>Already have an account? <Link to='/login' style={{ color: "#e7f87d", paddingLeft: "9px" }}> Login Here</Link></p>
+                            </Form>
+                        </div>
+                    </Col>
+
+                </Container>
+
+
+
+            </>
         )
     }
 }
