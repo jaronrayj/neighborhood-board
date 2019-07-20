@@ -5,6 +5,7 @@ import Signup from './components/Signup'
 import Board from './components/Board'
 import NavBar from './components/NavBar'
 import backgroundImage from './components/images/silhouette.jpg'
+import Header from './components/Header'
 import {
   BrowserRouter as Router,
   Route,
