@@ -70,7 +70,6 @@ class Marketplace extends Component {
     render() {
         return (
             <div>
-                <Card.Group>
                     <Card>
                         <Card.Content>
                             <Card.Header>Marketplace
@@ -100,8 +99,12 @@ class Marketplace extends Component {
                             }
                         </Card.Content>
                     </Card>
+<<<<<<< HEAD
                 </Card.Group>
             </div>
+=======
+            </div >
+>>>>>>> 9ab2c67f4cbbb50f24acd31d450d6828c8fd54b9
         )
     }
 }

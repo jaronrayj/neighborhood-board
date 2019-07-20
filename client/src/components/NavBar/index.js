@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Label, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios'
 import "./style.css"
-import LazyHero from 'react-lazy-hero';
+// import LazyHero from 'react-lazy-hero';
 
 // import logo from "../../images/logo.png"
 import profile from "../images/ProfileRog.jpg"
@@ -59,7 +59,7 @@ export default class NavBar extends Component {
 
           {this.state.authenticated ?
             <Menu.Item position='right'>
-              <Label as='a' style={{ backgroundColor: "lightgrey", color: "#800000" }} image href='/profile'>
+              <Label as='a' style={{ backgroundColor: "lightgrey", color: "#800000" }} image>
                 <img alt='label user' src={profile} />
                 {this.state.authUser.displayName}
                 {/* <Label.Detail>{this.state.authUser.role}</Label.Detail> */}

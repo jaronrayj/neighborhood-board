@@ -84,16 +84,17 @@ class EventModal extends Component {
                         <Form>
                             <Form.Group id="eventTitle">
                                 <Form.Label>Event Name</Form.Label>
-                                <Form.Control as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control as="input" placeholder="What's happening?" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="eventDesc">
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control as="textarea" value={this.state.description} onChange={this.handleInputChange} name="description" />
+                                <Form.Control as="textarea" placeholder="What to bring? Where's it at?" value={this.state.description} onChange={this.handleInputChange} name="description" />
                             </Form.Group>
                             <Form.Group id="eventDate">
                                 <Form.Label>Date of Event: </Form.Label>
                                 <br />
                                 <DatePicker
+                                    placeholderText="i.e. 06/07/2019"
                                     selected={this.state.startDate}
                                     onChange={this.handleDateChange}
                                 />

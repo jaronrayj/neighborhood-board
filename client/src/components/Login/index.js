@@ -92,23 +92,29 @@ class LoginForm extends Component {
 
 
                     <Form>
-                        <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Username</label>
-                            <input onChange={this.handleInputChange} placeholder='' name='username' />
+                        <Form.Field style={{ float: 'right' }}>
+                            <label style={{ color: "#404A59" }}>Username</label>
+                            <input style={{ width: "550px" }} onChange={this.handleInputChange} placeholder='' name='username' />
                         </Form.Field>
-                        <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Password</label>
-                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' />
+                        <Form.Field style={{ float: 'right' }}>
+                            <label style={{ color: "#404A59" }}>Password</label>
+                            <input style={{ width: "550px" }} onChange={this.handleInputChange} placeholder='*********' type='password' name='password' />
                         </Form.Field>
 
                         {this.state.submitting ?
-                            <Button type='submit' disabled={true} onClick={this.handleSubmit} style={{ backgroundColor: "#800000", color: "white", width: "100%", marginTop: "20px" }}><Loader size='big' active inverted />Logging In</Button>
+                            <Button type='submit' disabled={true} onClick={this.handleSubmit} style={{ float: 'right', backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' active inverted />Logging In</Button>
                             :
-                            <Button type='submit' onClick={this.handleSubmit} style={{ backgroundColor: "#800000", color: "white", width: "100%", marginTop: "20px" }}>Login</Button>
+                            <Button type='submit' onClick={this.handleSubmit} style={{ float: 'right', backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Login</Button>
                         }
 
                         <br />
-                        <p style={{ color: "white", marginTop: "30px" }}>To create a new account <Link to='/signup' style={{ color: "#F5FFFA", paddingLeft: "9px" }}>Click Here</Link></p>
+                        <p className='text-center' style={{
+                            float: 'right',
+                            backgroundColor: "#404A59",
+                            color: "white", marginTop: "30px",
+                            width: '550px'
+                        }}>New users: <Link to='/signup' style={{ color: "#e7f87d", paddingLeft: "9px" }}>Click Here</Link></p>
+
                     </Form>
 
                 </div>
