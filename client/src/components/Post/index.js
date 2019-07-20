@@ -38,8 +38,8 @@ export default class Post extends React.Component {
 
   }
 
-  render(){
-    if(this.state.isDeleted) {
+  render() {
+    if (this.state.isDeleted) {
       return;
     }
 
@@ -49,10 +49,10 @@ export default class Post extends React.Component {
     //   //pull up a modal to leave a comment
     //   //it will need a body area and a submit button
     // }
-    
+
     return (
 
-      <Card>
+      <Card className='m-3'>
         <Card.Header>
           <span>{this.props.data.username}</span>
           {/* <span className="time-span">{this.props.data.date}</span> */}
@@ -68,11 +68,11 @@ export default class Post extends React.Component {
             postId={this.props.data._id}
           />
           {/* <Button data-id={this.props.data._id} onClick={editClick} className="post-edit-button" variant="outline-secondary" size="sm">Edit</Button> */}
-          <Button id={"delete-btn-"+this.props.data._id} onClick={this.deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
+          <Button id={"delete-btn-" + this.props.data._id} onClick={this.deleteClick} className="post-delete-button" variant="outline-danger" size="sm">Delete</Button>
         </Card.Footer>
       </Card>
 
-    ) 
+    )
   }
 }
 
