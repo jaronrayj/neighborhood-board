@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const marketSchema = new Schema({
-  userId: { type: String},
-  title: { type: String},
+  userId: { type: String },
+  title: { type: String },
   description: String,
   price: { type: Number },
-  // price: Schema.Types.Decimala128,
+  // price: Schema.Types.Decimal128,
   // img: { data: Buffer, contentType: String },
-  imageName: { type: String, default: "none", required: true },
+  // imageName: { type: String, default: "none", required: true },
   imageData: { type: String, required: true },
-  
+  imgUrl: String,
   contactPhone: { type: String },
   contactEmail: { type: String }
 });

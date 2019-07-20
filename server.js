@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect((process.env.MONGODB_URI || "mongodb://user:p12345678@ds351987.mlab.com:51987/heroku_qlf4wr3s"), { useNewUrlParser: true });
+mongoose.connect((process.env.MONGODB_URI || "mongodb://localhost/neighborhood-board"), { useNewUrlParser: true });
 
 // Define API routes here
 

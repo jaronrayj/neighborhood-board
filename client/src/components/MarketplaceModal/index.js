@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { storage } from '../../firebase-config';
 import DefaultImage from '../../assets/defaultImage.png';
+import Axios from 'axios'
 
 class MarketplaceModal extends Component {
     state = {
@@ -24,8 +25,22 @@ class MarketplaceModal extends Component {
             description: "",
             price: "",
             firebaseImage: DefaultImage,
-            contactPhone: ""
+            contactPhone: "",
+            userId: ''
         };
+    }
+
+    componentDidMount = () => {
+        const currentComponent = this;
+
+        Axios.get('/api/users/authenticate').then(function (response) {
+            currentComponent.setState({ userId: response.data.authenticatedUser.displayName }, function (response) {
+            }, console.log(this.state.userId))
+        }).catch(function (err) {
+            console.log(err)
+
+        })
+
     }
 
     setDefaultImage(uploadType) {
@@ -146,9 +161,9 @@ class MarketplaceModal extends Component {
         console.log("THis works");
 
 
-        const { title, description, price, contactPhone, imgUrl } = this.state;
+        const { title, description, price, contactPhone, imgUrl, userId } = this.state;
 
-        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl })
+        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl, userId })
             .then((result) => {
                 console.log(result);
             })
@@ -158,7 +173,8 @@ class MarketplaceModal extends Component {
             description: "",
             price: "",
             contactPhone: "",
-            imgUrl: ""
+            imgUrl: "",
+            userId: ''
         })
         this.handleClose();
         console.log(this.state);

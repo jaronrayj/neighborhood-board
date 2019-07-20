@@ -13,7 +13,7 @@ function Event(props) {
                     <h4>{props.title}</h4>
 
                     <h5>{props.userId}</h5>
-                    <p >{props.description}</p>
+                    <p>{props.description}</p>
                     <p>${props.price}</p>
                     <p>{props.contactPhone}</p>
                     <p>{props.contactEmail}</p>
