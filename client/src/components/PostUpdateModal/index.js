@@ -37,6 +37,10 @@ class PostUpdateModal extends Component {
 
     handleShow = () => {
         this.setState({ show: true });
+        this.setState({
+            title: this.props.title,
+            body: this.props.body
+        });
     }
 
     handleEdit = event => {
@@ -52,10 +56,10 @@ class PostUpdateModal extends Component {
                 console.log("Error occured while tryin to Edit post at id: " + this.props.postId);
             });
                 
-        this.setState({
-            title: "",
-            body: ""
-        });
+        // this.setState({
+        //     title: "",
+        //     body: ""
+        // });
 
         this.handleClose();
     }
@@ -78,7 +82,7 @@ class PostUpdateModal extends Component {
                         <Form>
                             <Form.Group id="discussionTitle">
                                 <Form.Label>Post Title</Form.Label>
-                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title"/>
                             </Form.Group>
                             <Form.Group id="discussionBody">
                                 <Form.Label>Post Body</Form.Label>
