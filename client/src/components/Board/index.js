@@ -6,10 +6,7 @@ import Discussion from "../Discussion";
 import Marketplace from "../Marketplace";
 import axios from 'axios';
 import './style.css'
-<<<<<<< HEAD
-=======
-// import StickyFooter from 'react-sticky-footer';
->>>>>>> 9ab2c67f4cbbb50f24acd31d450d6828c8fd54b9
+
 export default class Board extends Component {
 
     componentDidMount = () => {

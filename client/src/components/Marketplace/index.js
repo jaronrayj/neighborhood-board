@@ -70,41 +70,36 @@ class Marketplace extends Component {
     render() {
         return (
             <div>
-                    <Card>
-                        <Card.Content>
-                            <Card.Header>Marketplace
+                <Card>
+                    <Card.Content>
+                        <Card.Header>Marketplace
                         <MarketplaceModal
-                                    loadData={this.loadData}
-                                />
-                            </Card.Header>
-                        </Card.Content>
-                        <Card.Content>
-                            {
-                                // this.state.savedMarketItems
-                                this.state.items.map(e =>
-                                    <>
-                                        <MarketItem
-                                            userId={e.userId}
-                                            title={e.title}
-                                            description={e.description}
-                                            price={e.price}
-                                            contactPhone={e.contactPhone}
-                                            imageName={e.imageName}
-                                            imageData={e.imageData}
-                                        // contactEmail={e.contactEmail}
+                                loadData={this.loadData}
+                            />
+                        </Card.Header>
+                    </Card.Content>
+                    <Card.Content>
+                        {
+                            // this.state.savedMarketItems
+                            this.state.items.map(e =>
+                                <>
+                                    <MarketItem
+                                        userId={e.userId}
+                                        title={e.title}
+                                        description={e.description}
+                                        price={e.price}
+                                        contactPhone={e.contactPhone}
+                                        imageName={e.imageName}
+                                        imageData={e.imageData}
+                                    // contactEmail={e.contactEmail}
 
-                                        />
-                                    </>
-                                )
-                            }
-                        </Card.Content>
-                    </Card>
-<<<<<<< HEAD
-                </Card.Group>
+                                    />
+                                </>
+                            )
+                        }
+                    </Card.Content>
+                </Card>
             </div>
-=======
-            </div >
->>>>>>> 9ab2c67f4cbbb50f24acd31d450d6828c8fd54b9
         )
     }
 }
