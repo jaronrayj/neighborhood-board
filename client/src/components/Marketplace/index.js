@@ -82,8 +82,8 @@ class Marketplace extends Component {
                         {
                             // this.state.savedMarketItems
                             this.state.items.map(e =>
-                                <>
                                     <MarketItem
+                                        key={e._id}
                                         userId={e.userId}
                                         title={e.title}
                                         description={e.description}
@@ -94,7 +94,6 @@ class Marketplace extends Component {
                                     // contactEmail={e.contactEmail}
 
                                     />
-                                </>
                             )
                         }
                     </Card.Content>

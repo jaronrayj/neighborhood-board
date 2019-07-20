@@ -3,16 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import React, { Component } from 'react';
 import axios from "axios";
-// import FileBase from 'react-file-base64';
 import { storage } from '../../firebase-config';
-// import { firebase } from '../../firebase-config';
 import DefaultImage from '../../assets/defaultImage.png';
 
-
-// base api url being used
-const API_URL = "http://localhost:3000";
-
 class MarketplaceModal extends Component {
+    state = {
+        imgUrl: "",
+        firebaseImage: ''
+    }
+
     constructor(props, context) {
         super(props, context);
 
@@ -24,9 +23,7 @@ class MarketplaceModal extends Component {
             title: "",
             description: "",
             price: "",
-            multerImage: DefaultImage,
             firebaseImage: DefaultImage,
-            baseImage: DefaultImage,
             contactPhone: ""
         };
     }
@@ -36,104 +33,70 @@ class MarketplaceModal extends Component {
             this.setState({
                 firebaseImage: DefaultImage
             });
-        } else {
-            this.setState({
-                baseImage: DefaultImage
-            });
         }
     }
-    // setDefaultImage(uploadType) {
-    //     if (uploadType === "multer") {
-    //         this.setState({
-    //             multerImage: DefaultImage
-    //         });
-    //     } else if (uploadType === "firebase") {
-    //         this.setState({
-    //             firebaseImage: DefaultImage
-    //         });
-    //     } else {
-    //         this.setState({
-    //             baseImage: DefaultImage
-    //         });
-    //     }
-    // }
 
     //function to upload image once it has been captured
-    //includes multer and firesbase methods
+
     uploadImage(e, method) {
         let imageObj = {};
 
-        // if (method === "multer") {
-        //     let imageFormObj = new FormData();
 
-        //     imageFormObj.append("imageName", "multer-image-" + Date.now());
-        //     imageFormObj.append("imageData", e.target.files[0]);
+        if (method === "firebase") {
 
-        // //stores a readable instance of the image being uploaded using multer
-        // this.setState({
-        //     multerImage: URL.createObjectURL(e.target.files[0])
-        // });
+            // // ===========FIREBASE=================
+            let currentImageName = "firebase-image-" + Date.now();
 
-        // axios.post(`${API_URL}/image/uploadmulter`, imageFormObj)
-        //     .then((data) => {
-        //         if (data.data.success) {
-        //             alert("Image has been successfully uploaded using multer");
-        //             this.setDefaultImage("multer");
-        //         }
-        //     })
-        //     .catch((err) => {
-        //         alert("Error while uploading image using multer");
-        //         this.setDefaultImage("multer");
-        //     });
-        // } else 
-        // if (method === "firebase") {
+            let uploadImage = storage.ref(`images/${currentImageName}`).put(e.target.files[0]);
 
-        // // ===========FIREBASE=================
-        //     let currentImageName = "firebase-image-" + Date.now();
+            uploadImage.on('state_changed',
+                (snapshot) => { },
+                (error) => {
+                    alert(error);
+                },
+                () => {
+                    storage.ref('images').child(currentImageName).getDownloadURL().then(url => {
 
-        //     let uploadImage = storage.ref(`images/${currentImageName}`).put(e.target.files[0]);
+                        this.setState({
+                            firebaseImage: url
+                        });
 
-        //     uploadImage.on('state_changed',
-        //     (snapshot) => { },
-        //     (error) => {
-        //         alert(error);
-        //     },
-        //     () => {
-        //         storage.ref('images').child(currentImageName).getDownloadURL().then(url => {
+                        //store image object in the database
+                        imageObj = {
+                            imageName: currentImageName,
+                            imageData: url
+                        };
+                        console.log("TCL: MarketplaceModal -> uploadImage -> imageObj", imageObj);
 
-        //             this.setState({
-        //                 firebaseImage: url
-        //             });
 
-        //             //store image object in the database
-        //             imageObj = {
-        //                 imageName: currentImageName,
-        //                 imageData: url
-        //             };
-
-        //             axios.post(`${API_URL}/image/uploadbase`, imageObj)
-        //                 .then((data) => {
-        //                     if (data.data.success) {
-        //                         alert("Image has been successfully uploaded using firebase storage");
-        //                         this.setDefaultImage("firebase");
-        //                     }
-        //                 })
-        //                 .catch((err) => {
-        //                     alert("Error while uploading image using firebase storage")
-        //                     this.setDefaultImage("firebase");
-        //                 });
-        //         })
-        //     })
-        // }
+                        // axios.post(`${API_URL}/image/uploadbase`, imageObj)
+                        //     .then((data) => {
+                        //         if (data.data.success) {
+                        //             alert("Image has been successfully uploaded using firebase storage");
+                        //             this.setDefaultImage("firebase");
+                        //         }
+                        //     })
+                        //     .catch((err) => {
+                        //         alert("Error while uploading image using firebase storage")
+                        //         this.setDefaultImage("firebase");
+                        //     });
+                    })
+                })
+        }
 
 
 
         //==========this works================
         let file = e.target.files[0];
 
-        var storageRef = storage.ref('photos/' + file.name);
+        let storageRef = storage.ref('photos/' + file.name);
+        this.setState({ imgUrl: storageRef.location.path }, () => {
+            console.log(this.state.imgUrl);
 
-        var task = storageRef.put(file);
+        });
+
+
+        let task = storageRef.put(file);
 
         // file.on('state_changed',
         //     (snapshot) => { },
@@ -183,9 +146,9 @@ class MarketplaceModal extends Component {
         console.log("THis works");
 
 
-        const { title, description, price, contactPhone } = this.state;
+        const { title, description, price, contactPhone, imgUrl } = this.state;
 
-        axios.post('/api/markets', { title, description, price, contactPhone })
+        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl })
             .then((result) => {
                 console.log(result);
             })
@@ -194,7 +157,8 @@ class MarketplaceModal extends Component {
             title: "",
             description: "",
             price: "",
-            contactPhone: ""
+            contactPhone: "",
+            imgUrl: ""
         })
         this.handleClose();
         console.log(this.state);
@@ -235,8 +199,7 @@ class MarketplaceModal extends Component {
 
                             <Form.Group id="marketItemImg">
                                 <Form.Label>Insert image of product</Form.Label>
-                                {/* <Form.Control as="file" className="process_upload-btn" onChange={(e) => this.uploadImage(e, "multer")} /> */}
-                                {/* <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />  */}
+
 
                                 {/* this might not work as well "file" */}
                                 {/* insert code for image multer image classname etc
@@ -258,18 +221,7 @@ class MarketplaceModal extends Component {
                                     <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />
                                 </div>
 
-                                {/* insert code for Base64
-                            <div className="process">
-                                <h4 className="process_heading">Process: Using Base64</h4>
-                                <p className="process_details">Upload image as Base64 directly to MongoDB database</p>
-
-                            <div className="process_upload-btn">
-                                <FileBase type="file" multiple={false} noDone={this.getBaseFile.bind(this)} />
-                            </div>
-                                <img src={this.state.baseImage} alt="upload-image" className="process_image" />>
-                            </div> */}
-
-                        </Form.Group>
+                            </Form.Group>
                         </Form>
                     </Modal.Body>
 
