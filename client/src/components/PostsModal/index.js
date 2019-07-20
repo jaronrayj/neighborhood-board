@@ -85,11 +85,11 @@ class ModalDiscussion extends Component {
                         <Form>
                             <Form.Group id="discussionTitle">
                                 <Form.Label>Post Title</Form.Label>
-                                <Form.Control as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control placeholder="What's it about?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="discussionBody">
                                 <Form.Label>Posts</Form.Label>
-                                <Form.Control as="textarea" rows="10" value={this.state.body} onChange={this.handleInputChange} name="body" />
+                                <Form.Control placeholder="Speak your mind" as="textarea" rows="10" value={this.state.body} onChange={this.handleInputChange} name="body" />
                             </Form.Group>
                         </Form>
                     </Modal.Body>
