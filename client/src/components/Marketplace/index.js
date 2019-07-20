@@ -51,11 +51,11 @@ class Marketplace extends Component {
         this.loadData();
     }
 
-    loadData = () => {
-        const currentComponent = this;
+    // loadData = () => {
+    //     const currentComponent = this;
 
 
-    }
+    // }
 
     loadData = () => {
         const currentComponent = this;
@@ -82,6 +82,7 @@ class Marketplace extends Component {
                         {
                             // this.state.savedMarketItems
                             this.state.items.map(e =>
+<<<<<<< HEAD
                                 <MarketItem
                                     key={e._id}
                                     userId={e.userId}
@@ -94,11 +95,30 @@ class Marketplace extends Component {
                                 // contactEmail={e.contactEmail}
 
                                 />
+=======
+                                <>
+                                    <MarketItem
+                                        userId={e.userId}
+                                        title={e.title}
+                                        description={e.description}
+                                        price={e.price}
+                                        contactPhone={e.contactPhone}
+                                        imageName={e.imageName}
+                                        imageData={e.imageData}
+                                    // contactEmail={e.contactEmail}
+
+                                    />
+                                </>
+>>>>>>> 5b94a6601e11c5a22dfaf10e58b4d6390bb2a6b6
                             )
                         }
                     </Card.Content>
                 </Card>
+<<<<<<< HEAD
             </div >
+=======
+            </div>
+>>>>>>> 5b94a6601e11c5a22dfaf10e58b4d6390bb2a6b6
         )
     }
 }

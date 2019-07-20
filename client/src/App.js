@@ -47,7 +47,7 @@ class App extends Component {
             <Route exact path="/board" component={Board} />
           </Switch>
         </Router>
-        <img className='background' src={backgroundImage} />
+        <img className='background' src={backgroundImage} alt="" />
       </>
     );
   }

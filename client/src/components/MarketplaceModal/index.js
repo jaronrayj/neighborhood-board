@@ -24,9 +24,8 @@ class MarketplaceModal extends Component {
             title: "",
             description: "",
             price: "",
-            multerImage: DefaultImage,
             firebaseImage: DefaultImage,
-            baseImage: DefaultImage,
+            firebaseURL: "",
             contactPhone: ""
         };
     }
@@ -36,56 +35,15 @@ class MarketplaceModal extends Component {
             this.setState({
                 firebaseImage: DefaultImage
             });
-        } else {
-            this.setState({
-                baseImage: DefaultImage
-            });
         }
     }
-    // setDefaultImage(uploadType) {
-    //     if (uploadType === "multer") {
-    //         this.setState({
-    //             multerImage: DefaultImage
-    //         });
-    //     } else if (uploadType === "firebase") {
-    //         this.setState({
-    //             firebaseImage: DefaultImage
-    //         });
-    //     } else {
-    //         this.setState({
-    //             baseImage: DefaultImage
-    //         });
-    //     }
-    // }
-
+    
     //function to upload image once it has been captured
-    //includes multer and firesbase methods
+    
     uploadImage(e, method) {
         let imageObj = {};
 
-        // if (method === "multer") {
-        //     let imageFormObj = new FormData();
-
-        //     imageFormObj.append("imageName", "multer-image-" + Date.now());
-        //     imageFormObj.append("imageData", e.target.files[0]);
-
-        // //stores a readable instance of the image being uploaded using multer
-        // this.setState({
-        //     multerImage: URL.createObjectURL(e.target.files[0])
-        // });
-
-        // axios.post(`${API_URL}/image/uploadmulter`, imageFormObj)
-        //     .then((data) => {
-        //         if (data.data.success) {
-        //             alert("Image has been successfully uploaded using multer");
-        //             this.setDefaultImage("multer");
-        //         }
-        //     })
-        //     .catch((err) => {
-        //         alert("Error while uploading image using multer");
-        //         this.setDefaultImage("multer");
-        //     });
-        // } else 
+       
         // if (method === "firebase") {
 
         // // ===========FIREBASE=================
@@ -258,18 +216,7 @@ class MarketplaceModal extends Component {
                                     <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />
                                 </div>
 
-                                {/* insert code for Base64
-                            <div className="process">
-                                <h4 className="process_heading">Process: Using Base64</h4>
-                                <p className="process_details">Upload image as Base64 directly to MongoDB database</p>
-
-                            <div className="process_upload-btn">
-                                <FileBase type="file" multiple={false} noDone={this.getBaseFile.bind(this)} />
-                            </div>
-                                <img src={this.state.baseImage} alt="upload-image" className="process_image" />>
-                            </div> */}
-
-                        </Form.Group>
+                            </Form.Group>
                         </Form>
                     </Modal.Body>
 
