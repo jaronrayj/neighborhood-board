@@ -51,11 +51,11 @@ class Marketplace extends Component {
         this.loadData();
     }
 
-    loadData = () => {
-        const currentComponent = this;
+    // loadData = () => {
+    //     const currentComponent = this;
 
 
-    }
+    // }
 
     loadData = () => {
         const currentComponent = this;
@@ -101,7 +101,7 @@ class Marketplace extends Component {
                         </Card.Content>
                     </Card>
                 </Card.Group>
-            </div >
+            </div>
         )
     }
 }
