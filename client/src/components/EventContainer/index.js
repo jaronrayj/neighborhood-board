@@ -44,14 +44,12 @@ class EventContainer extends Component {
                     <Card.Content>
                         {
                             this.state.events.map(e =>
-                                <>
-                                    <Event
-                                        key={e._id}
-                                        title={e.title}
-                                        description={e.description}
-                                        startDate={e.startDate}
-                                    />
-                                </>
+                                <Event
+                                    key={e._id}
+                                    title={e.title}
+                                    description={e.description}
+                                    startDate={e.startDate}
+                                />
                             )
                         }
                     </Card.Content>
