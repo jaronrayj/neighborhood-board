@@ -14,7 +14,7 @@ export default class Feed extends Component {
 
 
     componentDidMount() {
-        this.loadData()
+        this.loadData();
     }
 
     loadData = () => {
@@ -38,6 +38,7 @@ export default class Feed extends Component {
                 <div className="feed-body">
                     {this.state.posts.map(post => {
                         return <Post
+                            getUser={this.props.getUser}
                             key={post._id}
                             loadData={this.loadData}
                             data={post}
