@@ -6,7 +6,7 @@ import Discussion from "../Discussion";
 import Marketplace from "../Marketplace";
 import axios from 'axios';
 import './style.css'
-// import StickyFooter from 'react-sticky-footer';
+
 export default class Board extends Component {
 
     componentDidMount = () => {
@@ -44,7 +44,7 @@ export default class Board extends Component {
                     </Col>
                 </Row>
 
-                
+
 
                 {/* <StickyFooter
                     bottomThreshold={50}
