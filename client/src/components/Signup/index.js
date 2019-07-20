@@ -96,54 +96,58 @@ class LoginForm extends Component {
     render() {
 
         return (
-            <Container className='signup-page-container' style={{ marginTop: "40px" }}>
+            <Container className='signup-page-container' style={{ marginTop: "80px" }}>
 
                 <div className='signup-form-container'>
 
-                    <h1 style={{ color: "white", fontSize: "2rem", textAlign: "center", padding: "5%" }}>New Account Creation</h1>
+                    <h1 style={{ color: "#404A59", fontSize: "2rem", textAlign: "center" }}>New Account Creation</h1>
 
                     {this.state.error ? this.errorMessage() : null}
 
-                    <Form style={{ marginLeft: "auto", marginRight: "auto" }}>
+                    <Form style={{ marginLeft: "auto", marginRight: "auto", content: "center" }}>
 
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>First Name</label>
-                            <input onChange={this.handleInputChange} placeholder='John' name='firstName' />
+                            <label style={{ color: "#404A59" }}>First Name</label>
+                            <input onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
                         </Form.Field>
 
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Last Name</label>
-                            <input onChange={this.handleInputChange} placeholder='Doe' name='lastName' />
+                            <label style={{ color: "#404A59" }}>Last Name</label>
+                            <input onChange={this.handleInputChange} placeholder='Doe' name='lastName' style={{ width: "559px" }} />
                         </Form.Field>
 
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Email</label>
+                            <label style={{ color: "#404A59" }}>Email</label>
                             <input onChange={this.handleInputChange} placeholder='email@noreply.com' name='email' style={{ width: "559px" }} />
                         </Form.Field>
 
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Username</label>
-                            <input onChange={this.handleInputChange} placeholder='my_username' name='username' />
+                            <label style={{ color: "#404A59" }}>Username</label>
+                            <input onChange={this.handleInputChange} placeholder='my_username' name='username' style={{ width: "559px" }} />
                         </Form.Field>
 
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Password</label>
-                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' />
+                            <label style={{ color: "#404A59" }}>Password</label>
+                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' style={{ width: "559px" }} />
                         </Form.Field>
 
                         <Form.Field>
-                            <label style={{ color: "#FFCB39" }}>Confirm Password</label>
-                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='confirmPassword' />
+                            <label style={{ color: "#404A59" }}>Confirm Password</label>
+                            <input onChange={this.handleInputChange} placeholder='*********' type='password' name='confirmPassword' style={{ width: "559px" }} />
                         </Form.Field>
 
                         {this.state.submitting ?
-                            <Button disabled={true} onClick={this.handleSubmit} type='submit' style={{ backgroundColor: "#FFCB39", color: "white", width: "100%", marginTop: "20px" }}><Loader size='big' inverted active />Creating Account</Button>
+                            <Button disabled={true} onClick={this.handleSubmit} type='submit' style={{ backgroundColor: "#404A59", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' inverted active />Creating Account</Button>
                             :
-                            <Button onClick={this.handleSubmit} disabled={this.state.formErrors} type='submit' style={{ backgroundColor: "#FFCB39", color: "white", width: "100%", marginTop: "20px" }}>Create Account</Button>
+                            <Button onClick={this.handleSubmit} disabled={this.state.formErrors} type='submit' style={{ backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Create Account</Button>
                         }
 
                         <br />
-                        <p style={{ color: "white", marginTop: "30px" }}>Already have an account? <Link to='/login' style={{ color: "#FFCB39", paddingLeft: "9px" }}> Login Here</Link></p>
+                        <p className='text-center' style={{
+                            backgroundColor: "#404A59",
+                            color: "white", marginTop: "30px",
+                            width: '550px'
+                        }}>Already have an account? <Link to='/login' style={{ color: "#e7f87d", paddingLeft: "9px" }}> Login Here</Link></p>
                     </Form>
                 </div>
             </Container>
