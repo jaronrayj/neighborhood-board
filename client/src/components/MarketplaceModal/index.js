@@ -20,18 +20,18 @@ class MarketplaceModal extends Component {
             title: "",
             description: "",
             price: "",
-            firebaseImage: DefaultImage,
+            // firebaseImage: DefaultImage,
             contactPhone: "",
-            userId: ""
+            username: ""
         };
     }
 
     componentDidMount = () => {
-        const currentComponent = this;
+        let currentComponent = this;
 
         Axios.get('/api/users/authenticate').then(function (response) {
-            currentComponent.setState({ userId: response.data.authenticatedUser.displayName }, function (response) {
-            }, console.log(this.state.userId))
+            currentComponent.setState({ username: response.data.authenticatedUser.displayName }, 
+                console.log(this.state.username))
         }).catch(function (err) {
             console.log(err)
 
@@ -157,9 +157,9 @@ class MarketplaceModal extends Component {
         console.log("THis works");
 
 
-        const { title, description, price, contactPhone, imgUrl, userId } = this.state;
+        const { title, description, price, contactPhone, imgUrl, username } = this.state;
 
-        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl, userId })
+        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl, username })
             .then((result) => {
                 console.log(result);
             })
@@ -169,8 +169,7 @@ class MarketplaceModal extends Component {
             description: "",
             price: "",
             contactPhone: "",
-            imgUrl: "",
-            userId: ''
+            imgUrl: ""
         })
         this.handleClose();
         console.log(this.state);
@@ -193,7 +192,7 @@ class MarketplaceModal extends Component {
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group>
                                 <Form.Label>Item for sale name</Form.Label>
-                                <Form.Control autofocus="true" placeholder="What is it?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control placeholder="What is it?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="marketItemDesc">
                                 <Form.Label>Description</Form.Label>

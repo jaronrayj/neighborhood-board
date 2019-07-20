@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const marketSchema = new Schema({
-  userId: { type: String },
+  username: { type: String },
   title: { type: String },
   description: String,
   price: { type: Number },

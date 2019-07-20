@@ -12,7 +12,7 @@ function Event(props) {
                 <Feed.Content>
                     <h4>{props.title}</h4>
 
-                    <h5>{props.userId}</h5>
+                    <h5>User: {props.username}</h5>
                     <p>{props.description}</p>
                     <p>${props.price}</p>
                     <p>{props.contactPhone}</p>

@@ -12,7 +12,7 @@ import "./style.css";
 // const events = useEvent();
 
 // const items = [{
-//     userId: "userId",
+//     username: "username",
 //     title: "title",
 //     description: `Trust fund organic quinoa farm-to-table vaporware, meh 
 //         brooklyn four dollar toast cold-pressed tofu. Hashtag lomo 
@@ -25,7 +25,7 @@ import "./style.css";
 //     img: "https://via.placeholder.com/50x50"
 // },
 // {
-//     userId: "userId",
+//     username: "username",
 //     title: "title",
 //     description: `Trust fund organic quinoa farm-to-table vaporware, meh 
 //         brooklyn four dollar toast cold-pressed tofu. Hashtag lomo 
@@ -61,7 +61,9 @@ class Marketplace extends Component {
         const currentComponent = this;
 
         Axios.get('/api/markets').then(function (res) {
-            currentComponent.setState({ items: res.data })
+            currentComponent.setState({ items: res.data },
+                console.log("TCL: Marketplace -> loadData -> items", res.data)
+                )
         }).catch(function (err) {
             console.log(err)
         });
@@ -82,18 +84,18 @@ class Marketplace extends Component {
                         {
                             // this.state.savedMarketItems
                             this.state.items.map(e =>
-                                    <MarketItem
-                                        key={e._id}
-                                        userId={e.userId}
-                                        title={e.title}
-                                        description={e.description}
-                                        price={e.price}
-                                        contactPhone={e.contactPhone}
-                                        imageName={e.imageName}
-                                        imageData={e.imageData}
-                                    // contactEmail={e.contactEmail}
+                                <MarketItem
+                                    key={e._id}
+                                    username={e.username}
+                                    title={e.title}
+                                    description={e.description}
+                                    price={e.price}
+                                    contactPhone={e.contactPhone}
+                                    imageName={e.imageName}
+                                    imageData={e.imageData}
+                                // contactEmail={e.contactEmail}
 
-                                    />
+                                />
                             )
                         }
                     </Card.Content>
