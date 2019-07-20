@@ -6,10 +6,9 @@ const marketSchema = new Schema({
   title: { type: String },
   description: String,
   price: { type: Number },
-  // price: Schema.Types.Decimal128,
   // img: { data: Buffer, contentType: String },
   // imageName: { type: String, default: "none", required: true },
-  imageData: { type: String, required: true },
+  // imageData: { type: String, required: true },
   imgUrl: String,
   contactPhone: { type: String },
   contactEmail: { type: String }

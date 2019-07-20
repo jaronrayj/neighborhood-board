@@ -8,10 +8,6 @@ import DefaultImage from '../../assets/defaultImage.png';
 import Axios from 'axios'
 
 class MarketplaceModal extends Component {
-    state = {
-        imgUrl: "",
-        firebaseImage: ''
-    }
 
     constructor(props, context) {
         super(props, context);
@@ -26,7 +22,7 @@ class MarketplaceModal extends Component {
             price: "",
             firebaseImage: DefaultImage,
             contactPhone: "",
-            userId: ''
+            userId: ""
         };
     }
 
@@ -197,7 +193,7 @@ class MarketplaceModal extends Component {
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group>
                                 <Form.Label>Item for sale name</Form.Label>
-                                <Form.Control placeholder="What is it?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control autofocus="true" placeholder="What is it?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="marketItemDesc">
                                 <Form.Label>Description</Form.Label>
@@ -213,12 +209,12 @@ class MarketplaceModal extends Component {
                                 <Form.Control placeholder="Best way to reach out to you" as="input" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
                             </Form.Group>
 
-                            <Form.Group id="marketItemImg">
-                                <Form.Label>Insert image of product</Form.Label>
+                            {/* <Form.Group id="marketItemImg">
+                                <Form.Label>Insert image of product</Form.Label> */}
 
 
-                                {/* this might not work as well "file" */}
-                                {/* insert code for image multer image classname etc
+                            {/* this might not work as well "file" */}
+                            {/* insert code for image multer image classname etc
                             <div className="process">
                                 <h4 className="process_heading">Process: Using Multer</h4>
                                 <p className="process_details">Upload image to a node server, connected to a MongoDB database, with teh help of multer</p>
@@ -227,9 +223,9 @@ class MarketplaceModal extends Component {
                                 <img src={this.state.multerImage} alt="upload-image" className="process_image" />
                             </div> */}
 
-                                {/*insert code for firebase storage*/}
+                            {/*insert code for firebase storage*/}
 
-                                <div className="process">
+                            {/* <div className="process">
                                     <h4 className="process_heading">Process: Using Firebase Storage</h4>
                                     <p className="process_details">Upload image to Firebase storage and retrieve a reference to the image</p>
 
@@ -237,7 +233,7 @@ class MarketplaceModal extends Component {
                                     <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />
                                 </div>
 
-                            </Form.Group>
+                            </Form.Group> */}
                         </Form>
                     </Modal.Body>
 

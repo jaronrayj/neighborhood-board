@@ -85,7 +85,7 @@ class ModalDiscussion extends Component {
                         <Form>
                             <Form.Group id="discussionTitle">
                                 <Form.Label>Post Title</Form.Label>
-                                <Form.Control placeholder="What's it about?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
+                                <Form.Control autofocus="true" placeholder="What's it about?" as="input" value={this.state.title} onChange={this.handleInputChange} name="title" />
                             </Form.Group>
                             <Form.Group id="discussionBody">
                                 <Form.Label>Posts</Form.Label>
