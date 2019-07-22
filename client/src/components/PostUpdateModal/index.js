@@ -82,7 +82,7 @@ class PostUpdateModal extends Component {
                         <Form>
                             <Form.Group id="discussionTitle">
                                 <Form.Label>Post Title</Form.Label>
-                                <Form.Control as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title"/>
+                                <Form.Control autofocus="true" as="textarea" value={this.state.title} onChange={this.handleInputChange} name="title"/>
                             </Form.Group>
                             <Form.Group id="discussionBody">
                                 <Form.Label>Post Body</Form.Label>

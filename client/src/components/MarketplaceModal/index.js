@@ -5,12 +5,9 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { storage } from '../../firebase-config';
 import DefaultImage from '../../assets/defaultImage.png';
+import Axios from 'axios'
 
 class MarketplaceModal extends Component {
-    state = {
-        imgUrl: "",
-        firebaseImage: ''
-    }
 
     constructor(props, context) {
         super(props, context);
@@ -23,9 +20,23 @@ class MarketplaceModal extends Component {
             title: "",
             description: "",
             price: "",
-            firebaseImage: DefaultImage,
-            contactPhone: ""
+            // firebaseImage: DefaultImage,
+            contactPhone: "",
+            username: ""
         };
+    }
+
+    componentDidMount = () => {
+        let currentComponent = this;
+
+        Axios.get('/api/users/authenticate').then(function (response) {
+            currentComponent.setState({ username: response.data.authenticatedUser.displayName }, 
+                console.log(this.state.username))
+        }).catch(function (err) {
+            console.log(err)
+
+        })
+
     }
 
     setDefaultImage(uploadType) {
@@ -146,9 +157,9 @@ class MarketplaceModal extends Component {
         console.log("THis works");
 
 
-        const { title, description, price, contactPhone, imgUrl } = this.state;
+        const { title, description, price, contactPhone, imgUrl, username } = this.state;
 
-        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl })
+        axios.post('/api/markets', { title, description, price, contactPhone, imgUrl, username })
             .then((result) => {
                 console.log(result);
             })
@@ -197,12 +208,12 @@ class MarketplaceModal extends Component {
                                 <Form.Control placeholder="Best way to reach out to you" as="input" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
                             </Form.Group>
 
-                            <Form.Group id="marketItemImg">
-                                <Form.Label>Insert image of product</Form.Label>
+                            {/* <Form.Group id="marketItemImg">
+                                <Form.Label>Insert image of product</Form.Label> */}
 
 
-                                {/* this might not work as well "file" */}
-                                {/* insert code for image multer image classname etc
+                            {/* this might not work as well "file" */}
+                            {/* insert code for image multer image classname etc
                             <div className="process">
                                 <h4 className="process_heading">Process: Using Multer</h4>
                                 <p className="process_details">Upload image to a node server, connected to a MongoDB database, with teh help of multer</p>
@@ -211,9 +222,9 @@ class MarketplaceModal extends Component {
                                 <img src={this.state.multerImage} alt="upload-image" className="process_image" />
                             </div> */}
 
-                                {/*insert code for firebase storage*/}
+                            {/*insert code for firebase storage*/}
 
-                                <div className="process">
+                            {/* <div className="process">
                                     <h4 className="process_heading">Process: Using Firebase Storage</h4>
                                     <p className="process_details">Upload image to Firebase storage and retrieve a reference to the image</p>
 
@@ -221,7 +232,7 @@ class MarketplaceModal extends Component {
                                     <img src={this.state.firebaseImage} alt="upload-image" className="process_image" />
                                 </div>
 
-                            </Form.Group>
+                            </Form.Group> */}
                         </Form>
                     </Modal.Body>
 

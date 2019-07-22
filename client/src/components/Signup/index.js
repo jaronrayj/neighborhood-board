@@ -120,7 +120,7 @@ class LoginForm extends Component {
 
                                 <Form.Field>
                                     <label style={{ color: "#404A59" }}>First Name</label>
-                                    <input onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
+                                    <input autofocus="true" onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
                                 </Form.Field>
 
                                 <Form.Field>
