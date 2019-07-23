@@ -1,4 +1,9 @@
 h2 {
     font-family: 'Ubuntu', sans-serif;
+    color: white;
 }
 
+.navbarheader{
+    background-color: black;
+    color: white;
+}
