@@ -51,6 +51,7 @@ class PostUpdateModal extends Component {
         axios.put('/api/discussions/' + this.props.postId, { title, body })
             .then(req => {
                 console.log("Updated post at id: " + this.props.postId + "!");
+                this.handleClose();
             })
             .catch(err => {
                 console.log("Error occured while tryin to Edit post at id: " + this.props.postId);
@@ -61,13 +62,12 @@ class PostUpdateModal extends Component {
         //     body: ""
         // });
 
-        this.handleClose();
     }
 
     render() {
         return (
             <>
-                <Button className="post-edit-button" variant="outline-secondary" size="sm" onClick={this.handleShow}>
+                <Button className="post-edit-button" variant="outline-info" size="sm" onClick={this.handleShow}>
                     Edit Post
                 </Button>
 

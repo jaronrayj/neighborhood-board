@@ -8,6 +8,10 @@ import axios from 'axios';
 import './style.css'
 
 export default class Board extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     componentDidMount = () => {
 
@@ -28,8 +32,11 @@ export default class Board extends Component {
         })
     }
 
-    render() {
+    getUser = () => {
+        return this.state.authenticatedUser;
+    }
 
+    render() {        
         return (
             <div>
                 <Row style={{ marginTop: "80px" }}>
@@ -37,7 +44,9 @@ export default class Board extends Component {
                         <EventContainer />
                     </Col>
                     <Col className='p-0' sm={6}>
-                        <Discussion />
+                        <Discussion 
+                            getUser={this.getUser}
+                        />
                     </Col>
                     <Col className='pl-0' sm={3}>
                         <Marketplace />

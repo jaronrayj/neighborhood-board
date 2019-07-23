@@ -40,7 +40,7 @@ export default class NavBar extends Component {
 
     return (
       <div>
-        <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100" }}>
+        <Menu className="navbarheader" stackable style={{ position: "fixed", top: "0", left: "0", width: "100%", zIndex: "100", backgroundColor: "black" }}>
 
 
           <Menu.Item href='/board'>

@@ -143,8 +143,8 @@ class MarketplaceModal extends Component {
     };
 
     handleClose() {
-        this.setState({ show: false });
         this.props.loadData();
+        this.setState({ show: false });
     }
 
     handleShow() {
@@ -162,6 +162,7 @@ class MarketplaceModal extends Component {
         axios.post('/api/markets', { title, description, price, contactPhone, imgUrl, username })
             .then((result) => {
                 console.log(result);
+                this.handleClose();
             })
 
         this.setState({
@@ -171,7 +172,6 @@ class MarketplaceModal extends Component {
             contactPhone: "",
             imgUrl: ""
         })
-        this.handleClose();
         console.log(this.state);
     };
 
@@ -237,7 +237,7 @@ class MarketplaceModal extends Component {
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button onClick={this.handleClose} variant="danger">Close</Button>
+                        <Button onClick={this.handleClose} variant="outline-danger">Close</Button>
                         <Button onClick={this.handleSubmit} variant="outline-primary">Submit</Button>
                     </Modal.Footer>
                 </Modal>

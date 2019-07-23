@@ -38,8 +38,8 @@ class EventModal extends Component {
     }
 
     handleClose() {
-        this.setState({ show: false });
         this.props.loadData();
+        this.setState({ show: false });
     }
 
     handleShow() {
@@ -54,6 +54,7 @@ class EventModal extends Component {
         Axios.post('/api/events', { title, description, startDate })
             .then((result) => {
                 console.log(result);
+                this.handleClose();
             })
 
         this.setState({
@@ -63,7 +64,6 @@ class EventModal extends Component {
             // startDate: 
         })
 
-        this.handleClose();
     }
 
 
@@ -107,7 +107,7 @@ class EventModal extends Component {
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button onClick={this.handleClose} variant="danger">Close</Button>
+                        <Button onClick={this.handleClose} variant="outline-danger">Close</Button>
                         <Button variant="outline-primary" onClick={this.handleSubmit}>Save changes</Button>
                     </Modal.Footer>
                 </Modal>
