@@ -4,7 +4,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 // import './style.css'
 import axios from 'axios'
-
+import { Col, Row } from 'react-bootstrap'
+import Header from '../Header'
 
 
 
@@ -89,38 +90,47 @@ class LoginForm extends Component {
         return (
             <Container className='login-page-container' style={{ marginTop: "80px" }}>
 
-                <div className='form-container'>
+                <Row>
+                    <Col>
+                        <Header />
+                    </Col>
+                    <Col>
 
-                    {this.state.error ? this.errorMessage() : null}
+
+                        <div className='form-container'>
+
+                            {this.state.error ? this.errorMessage() : null}
 
 
-                    <Form>
-                        <Form.Field style={{ float: 'right' }}>
-                            <label style={{ color: "#404A59" }}>Username</label>
-                            <input style={{ width: "550px" }} onChange={this.handleInputChange} placeholder='' name='username' />
-                        </Form.Field>
-                        <Form.Field style={{ float: 'right' }}>
-                            <label style={{ color: "#404A59" }}>Password</label>
-                            <input style={{ width: "550px" }} onChange={this.handleInputChange} placeholder='*********' type='password' name='password' />
-                        </Form.Field>
+                            <Form>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Username</label>
+                                    <input style={{ width: "550px" }} onChange={this.handleInputChange} placeholder='' name='username' />
+                                </Form.Field>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Password</label>
+                                    <input style={{ width: "550px" }} onChange={this.handleInputChange} placeholder='*********' type='password' name='password' />
+                                </Form.Field>
 
-                        {this.state.submitting ?
-                            <Button type='submit' disabled={true} onClick={this.handleSubmit} style={{ float: 'right', backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' active inverted />Logging In</Button>
-                            :
-                            <Button type='submit' onClick={this.handleSubmit} style={{ float: 'right', backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Login</Button>
-                        }
+                                {this.state.submitting ?
+                                    <Button type='submit' disabled={true} onClick={this.handleSubmit} style={{ float: 'right', backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' active inverted />Logging In</Button>
+                                    :
+                                    <Button type='submit' onClick={this.handleSubmit} style={{ float: 'right', backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Login</Button>
+                                }
 
-                        <br />
-                        <p className='text-center' style={{
-                            float: 'right',
-                            backgroundColor: "#404A59",
-                            color: "white", marginTop: "30px",
-                            width: '550px'
-                        }}>New users: <Link to='/signup' style={{ color: "#e7f87d", paddingLeft: "9px" }}>Click Here</Link></p>
+                                <br />
+                                <p className='text-center' style={{
+                                    float: 'right',
+                                    backgroundColor: "#404A59",
+                                    color: "white", marginTop: "30px",
+                                    width: '550px'
+                                }}>New users: <Link to='/signup' style={{ color: "#e7f87d", paddingLeft: "9px" }}>Click Here</Link></p>
 
-                    </Form>
+                            </Form>
 
-                </div>
+                        </div>
+                    </Col>
+                </Row>
 
             </Container>
 
