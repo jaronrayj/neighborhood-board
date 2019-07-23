@@ -22,15 +22,12 @@ class EventContainer extends Component {
 
         Axios.get("/api/events").then(function (res) {
             currentComponent.setState({ events: res.data })
-            console.log("TCL: EventContainer -> loadData -> res.data", res.data);
         }).catch(function (err) {
             console.log(err);
         });
     }
 
     render() {
-        console.log("TCL: EventContainer -> render -> , EVENTS");
-        console.log("TCL: EventContainer -> render -> this.state.events", this.state.events);
         return (
             <div className="event-container">
                 <Card>

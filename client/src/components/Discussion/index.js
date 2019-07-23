@@ -38,6 +38,7 @@ export default class Feed extends Component {
                 <div className="feed-body">
                     {this.state.posts.map(post => {
                         return <Post
+                            key={post._id}
                             loadData={this.loadData}
                             data={post}
                         />
