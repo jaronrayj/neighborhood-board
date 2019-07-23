@@ -18,6 +18,16 @@
   z-index: -10;
 }
 
+
+.header {
+  height: 60%;
+  width: 60%;
+}
+
+
+
 body {
   overflow: hidden;
 }
+
+

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Header from '../Header'
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 
 
@@ -104,72 +103,66 @@ class LoginForm extends Component {
             <>
 
                 <Container className='signup-page-container' style={{ marginTop: "80px" }}>
-                    <Row>
+                    <Col>
+
+                        <div className='signup-form-container'>
+
+                            <h1 style={{ color: "#404A59", fontSize: "2rem", textAlign: "center" }}>New Account Creation</h1>
+
+                            {this.state.error ? this.errorMessage() : null}
+                            <br />
+
+                            <Header style={{ float: "left" }} />
 
 
-                        <Col>
 
-                            <Header />
+                            <Form style={{ marginLeft: "auto", marginRight: "auto", content: "center", float: "right" }}>
 
-                        </Col>
-                        <Col>
-                            <div className='signup-form-container'>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>First Name</label>
+                                    <input autofocus="true" onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
+                                </Form.Field>
 
-                                <h1 style={{ color: "#404A59", fontSize: "2rem", textAlign: "center" }}>New Account Creation</h1>
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Last Name</label>
+                                    <input onChange={this.handleInputChange} placeholder='Doe' name='lastName' style={{ width: "559px" }} />
+                                </Form.Field>
 
-                                {this.state.error ? this.errorMessage() : null}
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Email</label>
+                                    <input onChange={this.handleInputChange} placeholder='email@noreply.com' name='email' style={{ width: "559px" }} />
+                                </Form.Field>
+
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Username</label>
+                                    <input onChange={this.handleInputChange} placeholder='my_username' name='username' style={{ width: "559px" }} />
+                                </Form.Field>
+
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Password</label>
+                                    <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' style={{ width: "559px" }} />
+                                </Form.Field>
+
+                                <Form.Field>
+                                    <label style={{ color: "#404A59" }}>Confirm Password</label>
+                                    <input onChange={this.handleInputChange} placeholder='*********' type='password' name='confirmPassword' style={{ width: "559px" }} />
+                                </Form.Field>
+
+                                {this.state.submitting ?
+                                    <Button disabled={true} onClick={this.handleSubmit} type='submit' style={{ backgroundColor: "#404A59", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' inverted active />Creating Account</Button>
+                                    :
+                                    <Button onClick={this.handleSubmit} disabled={this.state.formErrors} type='submit' style={{ backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Create Account</Button>
+                                }
+
                                 <br />
-
-
-
-                                <Form style={{ marginLeft: "auto", marginRight: "auto", content: "center", }}>
-
-                                    <Form.Field>
-                                        <label style={{ color: "#404A59" }}>First Name</label>
-                                        <input autofocus="true" onChange={this.handleInputChange} placeholder='John' name='firstName' style={{ width: "559px" }} />
-                                    </Form.Field>
-
-                                    <Form.Field>
-                                        <label style={{ color: "#404A59" }}>Last Name</label>
-                                        <input onChange={this.handleInputChange} placeholder='Doe' name='lastName' style={{ width: "559px" }} />
-                                    </Form.Field>
-
-                                    <Form.Field>
-                                        <label style={{ color: "#404A59" }}>Email</label>
-                                        <input onChange={this.handleInputChange} placeholder='email@noreply.com' name='email' style={{ width: "559px" }} />
-                                    </Form.Field>
-
-                                    <Form.Field>
-                                        <label style={{ color: "#404A59" }}>Username</label>
-                                        <input onChange={this.handleInputChange} placeholder='my_username' name='username' style={{ width: "559px" }} />
-                                    </Form.Field>
-
-                                    <Form.Field>
-                                        <label style={{ color: "#404A59" }}>Password</label>
-                                        <input onChange={this.handleInputChange} placeholder='*********' type='password' name='password' style={{ width: "559px" }} />
-                                    </Form.Field>
-
-                                    <Form.Field>
-                                        <label style={{ color: "#404A59" }}>Confirm Password</label>
-                                        <input onChange={this.handleInputChange} placeholder='*********' type='password' name='confirmPassword' style={{ width: "559px" }} />
-                                    </Form.Field>
-
-                                    {this.state.submitting ?
-                                        <Button disabled={true} onClick={this.handleSubmit} type='submit' style={{ backgroundColor: "#404A59", color: "white", width: "550px", marginTop: "20px" }}><Loader size='big' inverted active />Creating Account</Button>
-                                        :
-                                        <Button onClick={this.handleSubmit} disabled={this.state.formErrors} type='submit' style={{ backgroundColor: "#800000", color: "white", width: "550px", marginTop: "20px" }}>Create Account</Button>
-                                    }
-
-                                    <br />
-                                    <p className='text-center' style={{
-                                        backgroundColor: "#404A59",
-                                        color: "white", marginTop: "30px",
-                                        width: '550px'
-                                    }}>Already have an account? <Link to='/login' style={{ color: "#e7f87d", paddingLeft: "9px" }}> Login Here</Link></p>
-                                </Form>
-                            </div>
-                        </Col>
-                    </Row>
+                                <p className='text-center' style={{
+                                    backgroundColor: "#404A59",
+                                    color: "white", marginTop: "30px",
+                                    width: '550px'
+                                }}>Already have an account? <Link to='/login' style={{ color: "#e7f87d", paddingLeft: "9px" }}> Login Here</Link></p>
+                            </Form>
+                        </div>
+                    </Col>
 
                 </Container>
 
