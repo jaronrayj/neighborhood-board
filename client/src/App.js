@@ -5,12 +5,14 @@ import Signup from './components/Signup'
 import Board from './components/Board'
 import NavBar from './components/NavBar'
 import backgroundImage from './components/images/silhouette.jpg'
-import Header from './components/Header'
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
+import { Container } from "semantic-ui-react"
+import gifImage from "./components/images/newneighborgif.gif"
+// import Header from "./components/Header"
 
 // const routes = [
 //   {
@@ -50,6 +52,7 @@ class App extends Component {
         </Router>
         <img className='background' src={backgroundImage} alt="" />
       </>
+
     );
   }
 }
