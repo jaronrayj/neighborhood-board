@@ -205,7 +205,7 @@ class MarketplaceModal extends Component {
                             </Form.Group>
                             <Form.Group id="marketItemPhone">
                                 <Form.Label>Contact Phone #</Form.Label>
-                                <Form.Control placeholder="Best way to reach out to you" as="input" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
+                                <Form.Control placeholder="Best way to reach out to you" type="number" value={this.state.contactPhone} onChange={this.handleInputChange} name="contactPhone" />
                             </Form.Group>
 
                             {/* <Form.Group id="marketItemImg">
